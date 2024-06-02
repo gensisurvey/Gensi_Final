@@ -32,13 +32,15 @@ const App = () => {
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 
   const TOTAL_SLIDES = 24; // added 1 for demographics,
-  const TESTING_MODE = false;
+  const TESTING_MODE = true;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
 
   // Runs on website launch
   useEffect(() => {
-    // localStorage.clear();
+    if (TESTING_MODE) {
+      localStorage.clear();
+    }
     
     if (localStorage.getItem("MOUNTED") === null) {
       localStorage.setItem("MOUNTED", true);
@@ -705,14 +707,14 @@ const App = () => {
           
           =====================================================*/}
             {slideIndex === 24 && (
-              <OpenInput
-                question={
-                  "Thank you for completing the mockup. Please add any kind of feedback."
-                }
-                updateCurrentSelection={updateCurrentSelection}
-                key={"survey_feedback"}
-                id={"survey_feedback"}
-              />
+              <NodeInputSlide
+              promptText="Thank you for completing the mockup. Please add any kind of feedback."
+              inlineText="Write feedback"
+              updateCurrentSelection={updateCurrentSelection}
+              key={"survey_feedback"}
+              id={"survey_feedback"}
+              include_svg={false}
+            />
             )}
             <NextSlideButton
               nextBlockOverride={nextBlockOverride}
