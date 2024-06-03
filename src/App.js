@@ -14,7 +14,7 @@ import TheSlide from "./Components/TheSlide.js";
 
 import LadderImg from "./Images/ladder.jpg";
 import BannerImg from "./Images/cornell_seal_simple_web_black.svg";
-import { generateColors } from "./Components/Helper.js";
+import { generateColors } from "./config/Helper.js";
 
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "./config/firestore.js";
@@ -41,7 +41,7 @@ const App = () => {
     if (TESTING_MODE) {
       localStorage.clear();
     }
-    
+
     if (localStorage.getItem("MOUNTED") === null) {
       localStorage.setItem("MOUNTED", true);
 
@@ -90,7 +90,7 @@ const App = () => {
     }
   };
 
-  // updates current PID with new information whenever called 
+  // updates current PID with new information whenever called
   const add_to_firebase = async (e) => {
     try {
       await setDoc(
@@ -127,7 +127,6 @@ const App = () => {
       console.log(next_data_add);
       console.log(current_slide_index);
     }
-    // console.log(next_data_add)
     if (option.override) {
       setSlideIndex(slideIndex + 1);
     }
@@ -136,27 +135,28 @@ const App = () => {
     setSelectionData(next_data_add);
   };
 
+  // logic for transitioning to the next slide
   const handleNextSlide = () => {
     if (TESTING_MODE) {
       console.log(currentSelection);
     }
 
-    // if there is no input, go to last slide 
+    // if there is no input, go to last slide
     if (slideIndex === -1 && currentSelection.data === null) {
       setSlideIndex(TOTAL_SLIDES);
       setSubmittedToFirebase(true);
-    // if user does not consent, go to last slide 
+      // if user does not consent, go to last slide
     } else if (slideIndex === -1 && currentSelection.data === "no") {
       setSlideIndex(TOTAL_SLIDES);
       setSubmittedToFirebase(true);
-    // if the state of current slide is to not allow user to move forward, bring up override screen
+      // if the state of current slide is to not allow user to move forward, bring up override screen
     } else if (currentSelection.nextBlocked) {
       setNextBlocked(true);
-    // the user can move forward, state needs to be updated, next blocked needs to be removed
+      // the user can move forward, state needs to be updated, next blocked needs to be removed
     } else {
       setNextBlocked(false);
 
-      // setting next slide to back to order for previous slide 
+      // setting next slide to back to order for previous slide
       if (slideIndex >= 0) {
         const nextPrevious = [...nextSlideToBackTo];
         nextPrevious.push(slideIndex);
@@ -164,24 +164,23 @@ const App = () => {
       }
       setSlideIndex(slideIndex + 1);
 
-      add_to_firebase()
+      add_to_firebase();
     }
   };
 
-  // overrides next blocked, used if yes is clicked on override screen 
+  // overrides next blocked, used if yes is clicked on override screen
   const nextBlockOverride = (tf) => {
     setNextBlocked(false);
     if (tf) {
       const nextPrevious = [...nextSlideToBackTo];
       nextPrevious.push(slideIndex);
-      // console.log(nextPrevious)
 
       setNextSlideToBackTo(nextPrevious);
       setSlideIndex(slideIndex + 1);
     }
   };
 
-  // logic for going to previous slide 
+  // logic for going to previous slide
   const goBackSlide = () => {
     if (slideIndex > 0) {
       const nextPrevious = [...nextSlideToBackTo];
@@ -514,14 +513,24 @@ const App = () => {
                         "How often do you feel left out: Hardly ever, some of the time, or often?	",
                         "How often do you feel isolated from others? (Is it hardly ever, some of the time, or often?)",
                       ]}
-                      possibleAnswers={[
-                        "Hardly Ever",
-                        "Some of the Time",
-                        "Often",
-                      ]}
+                      right={"Always"}
+                      left={"Never"}
+                      possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
                       updateCurrentSelection={updateCurrentSelection}
                       id={"UCLAMini"}
                       key={"UCLAMini"}
+                    />
+                    <LikertScaleSlide
+                      scalePrompt={"Please fill out this scale"}
+                      questions={[
+                        "First, how often do you feel that you lack companionship: Hardly ever, some of the time, or often?",
+                        "How often do you feel left out: Hardly ever, some of the time, or often?	",
+                        "How often do you feel isolated from others? (Is it hardly ever, some of the time, or often?)",
+                      ]}
+                      possibleAnswers={["Hardly Ever", "Sometimes", "Always"]}
+                      updateCurrentSelection={updateCurrentSelection}
+                      id={"UCLAMiniOther"}
+                      key={"UCLAMiniOther"}
                     />
 
                     <MultipleChoiceSlide
@@ -708,13 +717,13 @@ const App = () => {
           =====================================================*/}
             {slideIndex === 24 && (
               <NodeInputSlide
-              promptText="Thank you for completing the mockup. Please add any kind of feedback."
-              inlineText="Write feedback"
-              updateCurrentSelection={updateCurrentSelection}
-              key={"survey_feedback"}
-              id={"survey_feedback"}
-              include_svg={false}
-            />
+                promptText="Thank you for completing the mockup. Please add any kind of feedback."
+                inlineText="Write feedback"
+                updateCurrentSelection={updateCurrentSelection}
+                key={"survey_feedback"}
+                id={"survey_feedback"}
+                include_svg={false}
+              />
             )}
             <NextSlideButton
               nextBlockOverride={nextBlockOverride}
