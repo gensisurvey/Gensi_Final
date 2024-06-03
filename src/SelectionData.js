@@ -6,15 +6,6 @@ export const SelectionData = createContext({});
 export const SelectionDataProvider = ({ children }) => {
   const [selectionData, setSelectionData] = useState({});
 
-  // Load data from local storage on component mount
-  useEffect(() => {
-    const storedData = localStorage.getItem("selectionData");
-    if (storedData) {
-      setSelectionData(JSON.parse(storedData));
-      console.log(JSON.parse(storedData))
-    }
-  }, []);
-
   // Save data to local storage whenever selectionData changes
   useEffect(() => {
     localStorage.setItem("selectionData", JSON.stringify(selectionData));

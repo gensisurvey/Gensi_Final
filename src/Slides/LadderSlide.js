@@ -58,28 +58,34 @@ const LadderSlide = ({
     if (isValidInput) {
       setLadderRung(input);
       setFlash(false); // Reset flash when input is valid
+      updateCurrentSelection({
+        key: id,
+        data: input,
+        override: false,
+        nextBlocked: false,
+      });
     } else {
       setFlash(true); // Activate flashing effect when input is invalid
       setTimeout(() => setFlash(false), 1000); // Turn off flashing after 0.5s
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    if (ladderRung === "") {
-      setFlash(true); // Activate flashing effect when input is empty
-      setTimeout(() => setFlash(false), 1000); // Turn off flashing after 0.5s
-    } else {
-      setIsSubmitted(true)
-      updateCurrentSelection({
-        key: id,
-        data: ladderRung,
-        override: false,
-        nextBlocked: false,
-      });
-    }
-  };
+  //   if (ladderRung === "") {
+  //     setFlash(true); // Activate flashing effect when input is empty
+  //     setTimeout(() => setFlash(false), 1000); // Turn off flashing after 0.5s
+  //   } else {
+  //     setIsSubmitted(true)
+  //     updateCurrentSelection({
+  //       key: id,
+  //       data: ladderRung,
+  //       override: false,
+  //       nextBlocked: false,
+  //     });
+  //   }
+  // };
 
   return (
     <>
@@ -102,18 +108,18 @@ const LadderSlide = ({
                 <img src={ladderImg} alt="Logo" className="ladder-img" />
               )}
             </div>
-            <form onSubmit={handleSubmit}>
-              <input
-                className={flash ? "add-flash ladder-input" : "ladder-input"}
-                type="text"
-                value={ladderRung}
-                onChange={handleChange}
-                placeholder="1-10"
-              />
-              <button className="ladder-button" type="submit">
+            {/* <form > */}
+            <input
+              className={flash ? "add-flash ladder-input" : "ladder-input"}
+              type="text"
+              value={ladderRung}
+              onChange={handleChange}
+              placeholder="1-10"
+            />
+              {/* <button className="ladder-button" type="submit">
                 Add
-              </button>
-            </form>
+              </button> */}
+            {/* </form> */}
           </div>
         </div>
       ) : individual ? (

@@ -14,7 +14,7 @@ import TheSlide from "./Components/TheSlide.js";
 
 import LadderImg from "./Images/ladder.jpg";
 import BannerImg from "./Images/cornell_seal_simple_web_black.svg";
-import { generateColors } from "./config/Helper.js";
+import { generateColors, generateRandomID } from "./config/Helper.js";
 
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "./config/firestore.js";
@@ -32,16 +32,43 @@ const App = () => {
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 
   const TOTAL_SLIDES = 24; // added 1 for demographics,
-  const TESTING_MODE = true;
+  const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
 
   // Runs on website launch
+
+  // Load data from local storage on component mount
   useEffect(() => {
     if (TESTING_MODE) {
       localStorage.clear();
     }
 
+    const storedData = localStorage.getItem("selectionData");
+    const selection = storedData ? JSON.parse(storedData) : {}
+    setSelectionData(selection);
+    
+    const storedSlideIndex = localStorage.getItem("slideIndex");
+    const slide = storedSlideIndex ? parseInt(storedSlideIndex, 10) : -1
+    setSlideIndex(slide);
+    
+    const prevSlides = localStorage.getItem("nextSlideToBackTo");
+    setNextSlideToBackTo(prevSlides ? JSON.parse(prevSlides) : []);
+
+    if (selection !== null || selection !== undefined) {
+      if (selection.hasOwnProperty('consent')){
+        if (selection['consent'] === 'no' || slide > TOTAL_SLIDES) {
+          localStorage.clear();
+          setSlideIndex(-1);
+          setNextSlideToBackTo([]);
+          setCurrentSelection(null);
+          setNextBlocked(false);
+          setSubmittedToFirebase(false);
+          setSelectionData({})
+        }
+      }
+    }
+  
     if (localStorage.getItem("MOUNTED") === null) {
       localStorage.setItem("MOUNTED", true);
 
@@ -53,17 +80,12 @@ const App = () => {
       next_data_add["clockwise_name_order"] = circleOrderClockwise;
       next_data_add["max_nom"] = MAX_NOM;
       next_data_add["colors"] = generateColors(MAX_NOM + 1);
-      next_data_add["PID"] = Date.now();
+      next_data_add["PID"] = generateRandomID()
 
       setSelectionData(next_data_add);
       first_mount_firebase(next_data_add["PID"]);
     }
-
-    const storedSlideIndex = localStorage.getItem("slideIndex");
-    setSlideIndex(storedSlideIndex ? parseInt(storedSlideIndex, 10) : -1);
-
-    const prevSlides = localStorage.getItem("nextSlideToBackTo");
-    setNextSlideToBackTo(prevSlides ? JSON.parse(prevSlides) : []);
+    
   }, []);
 
   // Store slideIndex in local storage on state change

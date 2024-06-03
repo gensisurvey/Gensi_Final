@@ -41,3 +41,14 @@ export function generateColors(numColors) {
     }
     return newArray;
   }
+
+
+  export function generateRandomID() {
+    const timestamp = Date.now().toString();
+  
+    const randomSeries = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');
+  
+    const randomID = timestamp + randomSeries;
+  
+    return randomID;
+  }
