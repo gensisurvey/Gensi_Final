@@ -263,7 +263,7 @@ const App = () => {
                 }
                 promptText2={
                   <span>
-                    Which of these individuals do you <b>you</b> turn to as a
+                    Which of these individuals do <b>you</b> turn to as a
                     safe person when they are having a bad day or had a negative
                     experience?
                   </span>
