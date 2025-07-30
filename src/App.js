@@ -484,8 +484,8 @@ const App = () => {
                 (value, index) =>
                   slideIndex === index + 12 && (
                     <LadderSlide
-                      promptText="At the top of the ladder are the people who are best off"
-                      promptText2="At the bottom of the ladder are the people who are worst off."
+                      promptText="Think of this ladder as representing the United States."
+                      promptText2="At the top of the ladder are the people who are the best off in the United States. At the bottom are the people who are the worst off in the United States."
                       ladderPrompt={
                         <span>
                           Where do you think{" "}
@@ -531,9 +531,9 @@ const App = () => {
                     <LikertScaleSlide
                       scalePrompt={"Please fill out this scale"}
                       questions={[
-                        "First, how often do you feel that you lack companionship: Hardly ever, some of the time, or often?",
-                        "How often do you feel left out: Hardly ever, some of the time, or often?	",
-                        "How often do you feel isolated from others? (Is it hardly ever, some of the time, or often?)",
+                        "First, how often do you feel that you lack companionship?",
+                        "How often do you feel left out?	",
+                        "How often do you feel isolated from others?",
                       ]}
                       right={"Always"}
                       left={"Never"}
