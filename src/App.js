@@ -242,8 +242,8 @@ const App = () => {
             {slideIndex === 0 && (
               <NodeInputSlide
                 promptText="Some of your peers may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
-                promptText2="Think about any individuals who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. <br> Type in the first name of each person. After typing a name, either press Enter or click Add to include them on your list. When you've added all the names, click Next Slide to continue."
-                specialInstructions="NOTE: Please add initials to duplicate names, the bar will flash if a duplicate is detected"
+                promptText2="Think about any individuals who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
+                specialInstructions="NOTE: After typing a name, either press Enter or click Add to include them on your list. When you've added all the names, click Next Slide to continue. Please add initials to duplicate names, the bar will flash if a duplicate is detected."
                 inlineText="Write name"
                 updateCurrentSelection={updateCurrentSelection}
                 key={"all_people"}
