@@ -242,7 +242,7 @@ const App = () => {
             {slideIndex === 0 && (
               <NodeInputSlide
                 promptText="Some of your peers may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
-                promptText2="Think about any individuals who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
+                promptText2="Think about any individuals who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person. After typing a name, either press Enter or click Add to include them on your list. When you've added all the names, click Next Slide to continue."
                 specialInstructions="NOTE: Please add initials to duplicate names, the bar will flash if a duplicate is detected"
                 inlineText="Write name"
                 updateCurrentSelection={updateCurrentSelection}
@@ -698,7 +698,7 @@ const App = () => {
                       id={"facebookFollowing"}
                     />
                     <LadderSlide
-                      promptText="Think of this ladder as representing where student stand at Cornell University."
+                      promptText="Think of this ladder as representing where students stand at Cornell University."
                       promptText2=""
                       ladderPrompt={
                         "At the top of the ladder are the students who are the best off. At the bottom are the students who are the worst off. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom. "
