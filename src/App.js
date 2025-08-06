@@ -264,7 +264,7 @@ const App = () => {
                   These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
               </p>
                 <p>
-                    Which of these individuals do <b style={{ fontWeight: 600, fontSize: "1.1em" }}>you</b> turn to as a
+                    Which of these individuals do <b style={{ fontWeight: 600, fontSize: "1.05em" }}>you</b> turn to as a
                     safe person when you are having a bad day or had a negative
                     experience?
                       </p>
@@ -293,7 +293,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[0]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[0]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -314,7 +314,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[1]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[1]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -335,7 +335,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[2]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[2]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -356,7 +356,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[3]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[3]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -377,7 +377,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[4]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[4]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -398,7 +398,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[5]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[5]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -419,7 +419,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[6]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[6]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -440,7 +440,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[7]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[7]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -461,7 +461,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[8]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[8]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
@@ -482,7 +482,7 @@ const App = () => {
                   </p>
                   <p>
                     Which of these individuals do you think{" "}
-                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[9]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.05em" }}>{selectionData.all_people[9]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
                       </p>
