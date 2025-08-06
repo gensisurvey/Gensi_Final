@@ -264,7 +264,7 @@ const App = () => {
                   These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
               </p>
                 <p>
-                    Which of these individuals do <b>you</b> turn to as a
+                    Which of these individuals do <b style={{ fontWeight: 800, fontSize: "1.2em" }}>you</b> turn to as a
                     safe person when you are having a bad day or had a negative
                     experience?
                       </p>
