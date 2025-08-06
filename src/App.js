@@ -261,7 +261,7 @@ const App = () => {
                 promptText={
                   "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
                 }
-                promptText2={
+                promptText={
                   <span>
                     Which of these individuals do <b>you</b> turn to as a
                     safe person when you are having a bad day or had a negative
