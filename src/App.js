@@ -287,14 +287,16 @@ const App = () => {
             {slideIndex === 2 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[0]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[0]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={0}
