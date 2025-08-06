@@ -308,14 +308,16 @@ const App = () => {
             {slideIndex === 3 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[1]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[1]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={1}
@@ -327,14 +329,16 @@ const App = () => {
             {slideIndex === 4 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[2]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[2]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={2}
@@ -346,14 +350,16 @@ const App = () => {
             {slideIndex === 5 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[3]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[3]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={3}
@@ -365,14 +371,16 @@ const App = () => {
             {slideIndex === 6 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[4]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[4]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={4}
@@ -383,15 +391,17 @@ const App = () => {
             )}
             {slideIndex === 7 && (
               <NodeConnect1Slide
-                promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
+                promptText={ 
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[5]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[5]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={5}
@@ -403,14 +413,16 @@ const App = () => {
             {slideIndex === 8 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[6]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[6]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={6}
@@ -422,14 +434,16 @@ const App = () => {
             {slideIndex === 9 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[7]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[7]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={7}
@@ -441,14 +455,16 @@ const App = () => {
             {slideIndex === 10 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
-                  <span>
+                 <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[8]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[8]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={8}
@@ -460,14 +476,16 @@ const App = () => {
             {slideIndex === 11 && (
               <NodeConnect1Slide
                 promptText={
-                  "These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience."
-                }
-                promptText2={
                   <span>
+                  <p>
+                  These are the individual(s) you nominated as a safe person for you to turn to when you are having a bad day or had a negative experience.
+                  </p>
+                  <p>
                     Which of these individuals do you think{" "}
-                    <b>{selectionData.all_people[9]}</b> turns to as a safe
+                    <b style={{ fontWeight: 600, fontSize: "1.1em" }}>{selectionData.all_people[9]}</b> turns to as a safe
                     person when they are having a bad day or had a negative
                     experience?
+                      </p>
                   </span>
                 }
                 num_to_exclude={9}
