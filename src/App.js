@@ -508,18 +508,23 @@ const App = () => {
                     <LadderSlide
                       promptText="Think of this ladder as representing the United States."
                       promptText2="At the top of the ladder are the people who are the best off in the United States. At the bottom are the people who are the worst off in the United States."
-                      ladderPrompt={
-                        <span style={{ fontSize: "1.2em" }}>
-                          Where do you think{" "}
-                          <b>
-                            {value === selectionData.max_nom
-                              ? "you"
-                              : selectionData.all_people[value]}
-                          </b>{" "}
-                          {value === selectionData.max_nom ? "stand" : "stands"}{" "}
-                          on the ladder?
-                        </span>
-                      }
+                     promptText2={
+                       <div>
+                       <p>
+      At the top of the ladder are the people who are the best off in the United States.
+      At the bottom are the people who are the worst off in the United States.
+    </p>
+    <p>
+      Where do you think{" "}
+      <b style={{ fontWeight: 600 }}>
+        {value === selectionData.max_nom
+          ? "you"
+          : selectionData.all_people[value]}
+      </b>{" "}
+      {value === selectionData.max_nom ? "stand" : "stands"}{" "} on the ladder?
+    </p>
+  </div>
+}
                       ladderImg={LadderImg}
                       person_of_interest={value}
                       updateCurrentSelection={updateCurrentSelection}
