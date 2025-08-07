@@ -509,7 +509,7 @@ const App = () => {
                       promptText="Think of this ladder as representing the United States."
                       promptText2="At the top of the ladder are the people who are the best off in the United States. At the bottom are the people who are the worst off in the United States."
                       ladderPrompt={
-                        <span>
+                        <span style={{ fontSize: "1.2em" }}>
                           Where do you think{" "}
                           <b>
                             {value === selectionData.max_nom
