@@ -226,7 +226,46 @@ const App = () => {
           =====================================================*/}
             {slideIndex === -1 && (
               <MultipleChoiceSlide
-                question={"Do you consent to participating in this study?"}
+                question={'Welcome to our study! 
+                  You are invited to take part in a research study examining social ties in group and team settings. Please read this form carefully before agreeing to take part in the study.
+
+This study is being led by Alaa Itani, Wicia Fang, and Dr. Vivian Zayas in the Department of Psychology at Cornell University. 
+	
+What the study is about
+The purpose of this study is to explore how people think and feel about their social ties in social groups and team settings.
+
+What we will ask you to do
+If you agree to be in this study, you will be asked to complete several short surveys about yourself and how you feel and think about the people in your group/team. The study will take approximately 5 minutes to complete. You are free not to answer any questions you do not wish to answer, and to discontinue participation in the experiment at any point.
+
+Risks and discomforts
+We do not anticipate any risks from participating in this research. You are free not to answer any questions you do not wish to answer.
+
+Benefits 
+Participating in this study provides no direct benefits to you. However, we hope with your participation to broaden our understanding of how people perceive and navigate social relationships and team dynamics. 
+
+Incentives for participation 
+You will receive a $10 gift card for participating in the study. 
+
+As an additional group appreciation gesture, if at least 95% of eligible team members choose to complete the survey, the research team will provide pizza for the team. This group incentive is not part of your individual compensation. Your decision to participate or not participate is entirely voluntary. Choosing not to participate will involve no penalty or loss of benefits to which you are otherwise entitled. Individual participation decisions will not be shared with coaches, teammates, or anyone outside the research team.
+
+Privacy/Confidentiality/Data Security
+Data from the questionnaires will be stored using numerical ID codes without any identifying information. All data will be stored on a password protected, encrypted computer/server. Your identity will not be revealed in publications or any other outlet. Data from this project may be made available to other researchers in the future; should this occur, the data will contain no identifying information that could associate your name with participation in this project.
+
+Please note that the survey is being conducted with the help of Github and Netlify, companies not affiliated with Cornell and with their own privacy and security policies that you can find at their websites. We anticipate that your participation in this survey presents no greater risk than everyday use of the Internet. Your confidentiality will be kept to the degree permitted by the technology being used. We cannot guarantee against interception of data sent via the internet by third parties. 
+
+Sharing De-identified Data Collected in this Research 
+De-identified data from this study may be shared with the research community at large to advance science and health. We will remove or code any personal information that could identify you before files are shared with other researchers to ensure that, by current scientific standards and known methods, no one will be able to identify you from the information we share. Despite these measures, we cannot guarantee anonymity of your personal data.
+
+Taking part is voluntary
+You are free to stop participating at any time. Whether or not you consent to participate will not affect your current or future relationship with Cornell University. You are free to withdraw at any time.
+
+If you have questions
+The researchers conducting this study are graduate students, Alaa Itani and Wicia Fang, and Dr. Vivian Zayas, a professor at Cornell University. Please feel free to ask any questions you have before you participate. If you have questions, you may contact Alaa Itani at ai293@cornell.edu.  If you have any questions or concerns regarding your rights as a subject in this study, you may contact the Institutional Review Board (IRB) for Human Participants at 607-255-6182 or access their website at https://researchservices.cornell.edu/offices/IRB. You may also report your concerns or complaints anonymously through Ethicspoint online at www.hotline.cornell.edu or by calling toll free at 1-866-293-3077. Ethicspoint is an independent organization that serves as a liaison between the University and the person bringing the complaint so that anonymity can be ensured.
+
+Statement of Consent 
+I have read the above information and have received answers to any questions I asked.
+                  
+Do you consent to participating in this study?`}
                 options={["yes", "no"]}
                 updateCurrentSelection={updateCurrentSelection}
                 key={"consent"}
