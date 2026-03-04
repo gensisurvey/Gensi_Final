@@ -600,7 +600,7 @@ const App = () => {
                         "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me."
                       ]}
                       add_other_option={true}
-                      checkbox={true}
+                      checkbox={false}
                       updateCurrentSelection={updateCurrentSelection}
                       key={"attachmentcat"}
                       id={"attachmentcat"}
