@@ -224,11 +224,7 @@ const App = () => {
           Consent
           
           =====================================================*/}
-            {slideIndex === -1 && (
-              <MultipleChoiceSlide
-                question={
-
-					{slideIndex === -1 && (
+      					{slideIndex === -1 && (
   <MultipleChoiceSlide
     question={
 		<span>
