@@ -700,7 +700,7 @@ const App = () => {
                       key={"turntoavg"}
                       id={"turntoavg"}
                     />
-
+<div style={{ height: "20px" }} />
                         <LikertScaleSlide
                       scalePrompt={"Please fill out this scale"}
                       questions={[
