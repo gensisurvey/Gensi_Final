@@ -554,6 +554,49 @@ const App = () => {
                 {" "}
                 {
                   <>
+                     <OpenInput
+                      question={
+                        "Approximately, how many people on the team do you think would turn to you for support if they needed it?"
+                      }
+                      updateCurrentSelection={updateCurrentSelection}
+                      key={"turnedtoavg"}
+                      id={"turnedtoavg"}
+                    />
+                         <OpenInput
+                      question={
+                        "Approximately, how many people on the team could you turn to for support if you needed it?"
+                      }
+                      updateCurrentSelection={updateCurrentSelection}
+                      key={"turntoavg"}
+                      id={"turntoavg"}
+                    />
+
+                        <LikertScaleSlide
+                      scalePrompt={"Please fill out this scale"}
+                      questions={[
+                        "How important is this team to you?",
+                      ]}
+                      right={"Not at all"}
+                      left={"A great deal"}
+                      possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
+                      updateCurrentSelection={updateCurrentSelection}
+                      id={"important"}
+                      key={"important"}
+                    />
+
+                           <LikertScaleSlide
+                      scalePrompt={"Please fill out this scale"}
+                      questions={[
+                        "How much time do you spend with this team?",
+                      ]}
+                      right={"None"}
+                      left={"A great deal"}
+                      possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
+                      updateCurrentSelection={updateCurrentSelection}
+                      id={"timespent"}
+                      key={"timepsent"}
+                    />
+                        
                     <LikertScaleSlide
                       scalePrompt={"Please fill out this scale"}
                       questions={[
@@ -639,7 +682,7 @@ const App = () => {
                     />
                     <MultipleChoiceSlide
                       question={"What is your gender?"}
-                      options={["Man", "Woman"]}
+                      options={["Man", "Woman", "Other"]}
                       add_other_option={true}
                       checkbox={false}
                       updateCurrentSelection={updateCurrentSelection}
