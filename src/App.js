@@ -698,7 +698,7 @@ const App = () => {
                     />
 <div style={{ height: "20px" }} />
                         <LikertScaleSlide
-                      scalePrompt={"Please fill out this scale"}
+                      scalePrompt={"Please fill out this scale about your team"}
                       questions={[
                         "How important is this team to you?",
                       ]}
@@ -711,7 +711,7 @@ const App = () => {
                     />
 
                            <LikertScaleSlide
-                      scalePrompt={"Please fill out this scale"}
+                      scalePrompt={"Please fill out this scale about your team"}
                       questions={[
                         "How much time do you spend with this team?",
                       ]}
@@ -724,7 +724,7 @@ const App = () => {
                     />
                         
                     <LikertScaleSlide
-                      scalePrompt={"Please fill out this scale"}
+                      scalePrompt={"Please fill out this scale about yourself"}
                       questions={[
                         "First, how often do you feel that you lack companionship?",
                         "How often do you feel left out?",
@@ -808,7 +808,7 @@ const App = () => {
                     />
                     <MultipleChoiceSlide
                       question={"What is your gender?"}
-                      options={["Man", "Woman", "Other"]}
+                      options={["Man", "Woman"]}
                       add_other_option={true}
                       checkbox={false}
                       updateCurrentSelection={updateCurrentSelection}
