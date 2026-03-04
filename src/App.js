@@ -558,7 +558,7 @@ const App = () => {
                       scalePrompt={"Please fill out this scale"}
                       questions={[
                         "First, how often do you feel that you lack companionship?",
-                        "How often do you feel left out?	",
+                        "How often do you feel left out?",
                         "How often do you feel isolated from others?",
                       ]}
                       right={"Always"}
@@ -569,16 +569,57 @@ const App = () => {
                       key={"UCLAMini"}
                     />
                     <LikertScaleSlide
-                      scalePrompt={"Please fill out this scale"}
+                      scalePrompt={"Please fill out this scale. ​​During the past month, how often did you feel… "}
                       questions={[
-                        "First, how often do you feel that you lack companionship: Hardly ever, some of the time, or often?",
-                        "How often do you feel left out: Hardly ever, some of the time, or often?	",
-                        "How often do you feel isolated from others? (Is it hardly ever, some of the time, or often?)",
+                        "Happy",
+                        "Interested in life",
+                        "Satisfied with life",
+                        "That you had something important to contribute to society",
+                        "That you belonged to a community (like a social group, or your neighborhood)",
+                        "That our society is a good place, or is becoming a better place, for all people",
+                        "That people are basically good",
+                        "That the way our society works makes sense to you",
+                        "That you liked most parts of your personality",
+                        "Good at managing the responsibilities of your daily life",
+                        "That you had warm and trusting relationships with others",
+                        "That you had experiences that challenged you to grow and become a better person",
+                        "Confident to think or express your own ideas and opinions",
+                        "That your life has a sense of direction and meaning to it"
                       ]}
-                      possibleAnswers={["Hardly Ever", "Sometimes", "Always"]}
+                      possibleAnswers={["Never", "Once or twice", "​About once a week", "Almost every day", "Every day"]}
                       updateCurrentSelection={updateCurrentSelection}
-                      id={"UCLAMiniOther"}
-                      key={"UCLAMiniOther"}
+                      id={"MHC"}
+                      key={"MHC"}
+                    />                    
+                    <MultipleChoiceSlide
+                      question={"Please indicate which general relationship style best describes you or is closest to the way you are"}
+                      options={[
+                        "It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.",
+                        "I am uncomfortable getting close to others. I want emotionally close relationships, but I find it difficult to trust others completely, or to depend on them. I worry that I will be hurt if I allow myself to become too close to others.",
+                        "I want to be completely emotionally intimate with others, but I often find that others are reluctant to get as close as I would like. I am uncomfortable being without close relationships, but I sometimes worry that others don’t value me as much as I value them.",
+                        "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me."
+                      ]}
+                      add_other_option={true}
+                      checkbox={true}
+                      updateCurrentSelection={updateCurrentSelection}
+                      key={"attachmentcat"}
+                      id={"attachmentcat"}
+                    />
+
+                    <LikertScaleSlide
+                      scalePrompt={"Now please rate each of the relationship styles above to indicate how well or poorly each description corresponds to your general relationship style."}
+                      questions={[
+                        "It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.",
+                        "I am uncomfortable getting close to others. I want emotionally close relationships, but I find it difficult to trust others completely, or to depend on them. I worry that I will be hurt if I allow myself to become too close to others.",
+                        "I want to be completely emotionally intimate with others, but I often find that others are reluctant to get as close as I would like. I am uncomfortable being without close relationships, but I sometimes worry that others don’t value me as much as I value them.",
+                        "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me.",
+                      ]}
+                      right={"Disagree strongly"}
+                      left={"Agree strongly"}
+                      possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
+                      updateCurrentSelection={updateCurrentSelection}
+                      id={"attachmentcont"}
+                      key={"attachmentcont"}
                     />
 
                     <MultipleChoiceSlide
@@ -725,9 +766,8 @@ const App = () => {
                     />
                     <LadderSlide
                       promptText="Think of this ladder as representing where students stand at Cornell University."
-                      promptText2=""
-                      ladderPrompt={
-                        "At the top of the ladder are the students who are the best off. At the bottom are the students who are the worst off. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom. "
+                      promptText2="At the top of the ladder are the students who are the best off. At the bottom are the students who are the worst off. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom."
+                      ladderPrompt={"Where do you think you stand on the ladder?"                     
                       }
                       nodeNames={["You"]}
                       updateCurrentSelection={updateCurrentSelection}
@@ -737,22 +777,7 @@ const App = () => {
                       key={"ladderCU"}
                       id={"ladderCU"}
                     />
-                    <LadderSlide
-                      promptText={
-                        "Think of this ladder as representing where people stand in the United States."
-                      }
-                      promptText2=""
-                      ladderPrompt={
-                        "At the top of the ladder are the people who are the best off. At the bottom are the people who are the worst off. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom."
-                      }
-                      nodeNames={["You"]}
-                      updateCurrentSelection={updateCurrentSelection}
-                      maxNom={1}
-                      individual={true}
-                      ladderImg={LadderImg}
-                      key={"ladderUS"}
-                      id={"ladderUS"}
-                    />
+                    
                   </>
                 }
               </div>
