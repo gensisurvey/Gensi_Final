@@ -226,7 +226,7 @@ const App = () => {
           =====================================================*/}
             {slideIndex === -1 && (
               <MultipleChoiceSlide
-                question={'Welcome to our study! 
+                question={`Welcome to our study! 
                   You are invited to take part in a research study examining social ties in group and team settings. Please read this form carefully before agreeing to take part in the study.
 
 This study is being led by Alaa Itani, Wicia Fang, and Dr. Vivian Zayas in the Department of Psychology at Cornell University. 
