@@ -995,7 +995,6 @@ const [demoOrder] = useState(() =>
                     />
                      );
 	  							}
-                  </>
                 }
               </div>
             )}
