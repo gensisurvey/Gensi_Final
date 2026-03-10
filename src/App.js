@@ -861,8 +861,8 @@ const [demoOrder] = useState(() =>
                         "I want to be completely emotionally intimate with others, but I often find that others are reluctant to get as close as I would like. I am uncomfortable being without close relationships, but I sometimes worry that others don’t value me as much as I value them.",
                         "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me.",
                       ]}
-                      right={"Disagree strongly"}
-                      left={"Agree strongly"}
+                      left={"Disagree strongly"}
+                      right={"Agree strongly"}
                       possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
                       updateCurrentSelection={updateCurrentSelection}
                       id={"attachmentcont"}
