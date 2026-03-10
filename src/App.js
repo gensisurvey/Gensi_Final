@@ -383,8 +383,8 @@ const [demoOrder] = useState(() =>
           =====================================================*/}
             {slideIndex === 0 && (
               <NodeInputSlide
-                promptText="Some of your peers may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
-                promptText2="Think about any individuals who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
+                promptText="Some of the people on this team may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
+                promptText2="Think about any individuals in your team who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
                 specialInstructions="NOTE: After typing a name, either press Enter or click Add to include them on your list. When you've added all the names, click Next Slide to continue. Please add initials to duplicate names, the bar will flash if a duplicate is detected."
                 inlineText="Write name"
                 updateCurrentSelection={updateCurrentSelection}
@@ -639,7 +639,7 @@ const [demoOrder] = useState(() =>
 
             {/* =====================================================
           
-          Ladder slides 
+          Ladder slides - team
           
           =====================================================*/}
             {slideIndex >= 12 &&
@@ -647,6 +647,55 @@ const [demoOrder] = useState(() =>
               selectionData["clockwise_name_order"].map(
                 (value, index) =>
                   slideIndex === index + 12 && (
+                    <LadderSlide
+                      promptText="Think of this ladder as representing your team."
+                     promptText2={
+                       <div>
+                       <p>
+      At the top of the ladder are the people who are the best in the team.
+      At the bottom are the people who are the worst in the team.
+    </p>
+    <p>
+      Where do you think{" "}
+      <b style={{ fontWeight: 600, fontSize: "1.05em" }}>
+        {value === selectionData.max_nom
+          ? "you"
+          : selectionData.all_people[value]}
+      </b>{" "}
+      {value === selectionData.max_nom ? "stand" : "stands"} on the ladder?
+    </p>
+  </div>
+}
+                      ladderImg={LadderImg}
+                      person_of_interest={value}
+                      updateCurrentSelection={updateCurrentSelection}
+                      individual={false}
+                      key={
+                        "ladder_slide_" +
+                        (value === selectionData.max_nom
+                          ? "you"
+                          : value.toString())
+                      }
+                      id={
+                        "ladder_slide_" +
+                        (value === selectionData.max_nom
+                          ? "you"
+                          : value.toString())
+                      }
+                    />
+                  )
+              )}
+
+{/* =====================================================
+          
+          Ladder slides - US
+          
+          =====================================================*/}
+            {slideIndex >= 23 &&
+              slideIndex <= 23 + selectionData.max_nom &&
+              selectionData["clockwise_name_order"].map(
+                (value, index) =>
+                  slideIndex === index + 23 && (
                     <LadderSlide
                       promptText="Think of this ladder as representing the United States."
                      promptText2={
@@ -691,7 +740,7 @@ const [demoOrder] = useState(() =>
                Demographics slides
 
           =====================================================*/}
-            {slideIndex === 23 && (
+            {slideIndex === 34 && (
               <div>
                		<>
                      <OpenInput
@@ -833,7 +882,7 @@ const [demoOrder] = useState(() =>
 )}
 
 			 
-					 {slideIndex === 24 && (
+					 {slideIndex === 35 && (
               <div>
                {demoOrder.map((item) => {
 
@@ -844,6 +893,7 @@ const [demoOrder] = useState(() =>
                       options={[
                         "White",
                         "Hispanic or Latino",
+						  "Middle Eastern or North African",
                         "Black or African American",
                         "Native American or American Indian",
                         "Asian/Pacific Islander",
@@ -1026,7 +1076,7 @@ const [demoOrder] = useState(() =>
           Survey Feedback question
           
           =====================================================*/}
-            {slideIndex === 25 && (
+            {slideIndex === 36 && (
               <NodeInputSlide
                 promptText="Thank you for completing the study. Please provide us with feedback (if any) in the textbox below."
                 inlineText="Write feedback"
