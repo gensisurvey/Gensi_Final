@@ -240,7 +240,7 @@ const [demoOrder] = useState(() =>
           Consent
           
           =====================================================*/}
-      					{slideIndex === -1 && (
+      					{slideIndex === 0 && (
   <MultipleChoiceSlide
     question={
 		<span>
@@ -381,7 +381,7 @@ const [demoOrder] = useState(() =>
           Slides for inputting names into different categories 
           
           =====================================================*/}
-            {slideIndex === 0 && (
+            {slideIndex === 1 && (
               <NodeInputSlide
                 promptText="Some of the people on this team may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
                 promptText2="Think about any individuals in your team who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
@@ -398,7 +398,7 @@ const [demoOrder] = useState(() =>
           Slides for asking which of the nominated will turn to you 
           
           =====================================================*/}
-            {slideIndex === 1 && (
+          {/*  {slideIndex === 1 && (
               <NodeConnect1Slide
                 promptText={
                   <span> 
@@ -419,6 +419,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_you"}
               />
             )}
+					*/}
 
             {/* =====================================================
           
