@@ -693,8 +693,7 @@ const [demoOrder] = useState(() =>
           =====================================================*/}
             {slideIndex === 23 && (
               <div>
-                {" "}
-                {
+               		<>
                      <OpenInput
                       question={
                         "Approximately, how many people on the team do you think would turn to you for support if they needed it?"
@@ -819,13 +818,19 @@ const [demoOrder] = useState(() =>
                       updateCurrentSelection={updateCurrentSelection}
                       id={"attachmentcont"}
                       key={"attachmentcont"}
-                    />
-												       </div>
-							   );
-	  							}
-                }
-              </div>
-            )}
+                   />
+                      </div>
+          );
+        }
+
+        return null;
+
+      })}
+
+    </>
+
+  </div>
+)}
 
 			 
 					 {slideIndex === 24 && (
