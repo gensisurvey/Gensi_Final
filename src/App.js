@@ -378,7 +378,7 @@ const [demoOrder] = useState(() =>
 
             {/* =====================================================
           
-          Slides for inputing names into different categories 
+          Slides for inputting names into different categories 
           
           =====================================================*/}
             {slideIndex === 0 && (
@@ -671,13 +671,13 @@ const [demoOrder] = useState(() =>
                       updateCurrentSelection={updateCurrentSelection}
                       individual={false}
                       key={
-                        "ladder_slide_" +
+                        "team_ladder_slide_" +
                         (value === selectionData.max_nom
                           ? "you"
                           : value.toString())
                       }
                       id={
-                        "ladder_slide_" +
+                        "team_ladder_slide_" +
                         (value === selectionData.max_nom
                           ? "you"
                           : value.toString())
@@ -720,13 +720,13 @@ const [demoOrder] = useState(() =>
                       updateCurrentSelection={updateCurrentSelection}
                       individual={false}
                       key={
-                        "ladder_slide_" +
+                        "us_ladder_slide_" +
                         (value === selectionData.max_nom
                           ? "you"
                           : value.toString())
                       }
                       id={
-                        "ladder_slide_" +
+                        "us_ladder_slide_" +
                         (value === selectionData.max_nom
                           ? "you"
                           : value.toString())
