@@ -22,16 +22,32 @@ import { db } from "./config/firestore.js";
 import { SelectionData } from "./SelectionData.js";
 import "./App.css";
 
+const shuffleArray = (array) => {
+  return [...array].sort(() => Math.random() - 0.5);
+};
+
 const App = () => {
   const { selectionData, setSelectionData } = useContext(SelectionData);
   const [slideIndex, setSlideIndex] = useState(-1);
   const [nextSlideToBackTo, setNextSlideToBackTo] = useState([]);
-
+const [scaleOrder] = useState(() =>
+  shuffleArray(["UCLAMini", "MHC", "attachmentcat", "attachmentcont"])
+);
+const [demoOrder] = useState(() =>
+  shuffleArray([
+    "Ethnicity",
+    "Gender",
+	  "famIncome",
+	  "parentNumber",
+	  "genFriends",
+	  "instaFollowers",
+	  "ladderCU"  ])
+);
   const [currentSelection, setCurrentSelection] = useState(null);
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 
-  const TOTAL_SLIDES = 24; // added 1 for demographics,
+  const TOTAL_SLIDES = 25; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
@@ -770,7 +786,7 @@ const App = () => {
                         "I want to be completely emotionally intimate with others, but I often find that others are reluctant to get as close as I would like. I am uncomfortable being without close relationships, but I sometimes worry that others don’t value me as much as I value them.",
                         "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me."
                       ]}
-                      add_other_option={true}
+                      add_other_option={false}
                       checkbox={false}
                       updateCurrentSelection={updateCurrentSelection}
                       key={"attachmentcat"}
@@ -778,7 +794,7 @@ const App = () => {
                     />
 
                     <LikertScaleSlide
-                      scalePrompt={"Now please rate each of the relationship styles above to indicate how well or poorly each description corresponds to your general relationship style."}
+                      scalePrompt={"Please rate each of the relationship styles above to indicate how well or poorly each description corresponds to your general relationship style."}
                       questions={[
                         "It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.",
                         "I am uncomfortable getting close to others. I want emotionally close relationships, but I find it difficult to trust others completely, or to depend on them. I worry that I will be hurt if I allow myself to become too close to others.",
@@ -792,7 +808,16 @@ const App = () => {
                       id={"attachmentcont"}
                       key={"attachmentcont"}
                     />
+ </>
+                }
+              </div>
+            )}
+					 {slideIndex === 24 && (
+              <div>
+               {demoOrder.map((item) => {
 
+      if (item === "Ethnicity") {
+        return (	  
                     <MultipleChoiceSlide
                       question={"Please indicate your race/ethnicity:"}
                       options={[
@@ -807,7 +832,12 @@ const App = () => {
                       updateCurrentSelection={updateCurrentSelection}
                       key={"Ethnicity"}
                       id={"Ethnicity"}
-                    />
+                      />
+						  );
+	  							}
+
+		  if (item === "Gender") {
+        return (
                     <MultipleChoiceSlide
                       question={"What is your gender?"}
                       options={["Man", "Woman"]}
@@ -817,6 +847,11 @@ const App = () => {
                       key={"Gender"}
                       id={"Gender"}
                     />
+						   );
+	  							}
+
+						  if (item === "famIncome") {
+        return (
                     <MultipleChoiceSlide
                       question={"Approximately, what is your household income?"}
                       options={[
@@ -837,6 +872,11 @@ const App = () => {
                       key={"famIncome"}
                       id={"famIncome"}
                     />
+						   );
+	  							}
+
+						  if (item === "parentNumber") {
+        return (
                     <MultipleChoiceSlide
                       question={
                         "Growing up, how many parent / guardian(s) were in your household?"
@@ -887,6 +927,11 @@ const App = () => {
                         id={"par2Edu"}
                       />
                     )}
+				    );
+	  							}
+
+							if (item === "genFriends") {
+        return (
                     <OpenInput
                       question={
                         "Approximately, how many friends do you have? (People you socialize with, study with, discuss thoughts and feelings with, share interests with, etc.)"
@@ -903,6 +948,10 @@ const App = () => {
                         id={"closeFriends"}
                       />
                     )}
+							   );
+	  							}
+							if (item === "instaFollowers") {
+        return (
                     <OpenInput
                       question={
                         "Approximately, how many Instagram followers do you have? Enter 'NA' if you do not use this platform."
@@ -918,7 +967,12 @@ const App = () => {
                       updateCurrentSelection={updateCurrentSelection}
                       key={"instaFollowing"}
                       id={"instaFollowing"}
-                    />                  
+                    />    
+			 );
+	  							}
+
+						  if (item === "ladderCU") {
+        return (
                     <LadderSlide
                       promptText="Think of this ladder as representing where students stand at Cornell University."
                       promptText2="At the top of the ladder are the students who are the best off. At the bottom are the students who are the worst off. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom."
@@ -932,7 +986,8 @@ const App = () => {
                       key={"ladderCU"}
                       id={"ladderCU"}
                     />
-                    
+                     );
+	  							}
                   </>
                 }
               </div>
@@ -943,7 +998,7 @@ const App = () => {
           Survey Feedback question
           
           =====================================================*/}
-            {slideIndex === 24 && (
+            {slideIndex === 25 && (
               <NodeInputSlide
                 promptText="Thank you for completing the study. Please provide us with feedback (if any) in the textbox below."
                 inlineText="Write feedback"
