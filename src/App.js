@@ -755,7 +755,9 @@ const App = () => {
                         "Confident to think or express your own ideas and opinions",
                         "That your life has a sense of direction and meaning to it"
                       ]}
-                      possibleAnswers={["Never", "Once or twice", "​About once a week", "Almost every day", "Every day"]}
+			 		right={"Every day"}
+                      left={"Never"}
+                      possibleAnswers={["1", "2", "​3", "4", "5", "6", "7"]}
                       updateCurrentSelection={updateCurrentSelection}
                       id={"MHC"}
                       key={"MHC"}
