@@ -47,7 +47,7 @@ const [demoOrder] = useState(() =>
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 
-  const TOTAL_SLIDES = 25; // added 1 for demographics,
+  const TOTAL_SLIDES = 36; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
