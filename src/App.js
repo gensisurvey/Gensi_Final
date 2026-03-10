@@ -916,23 +916,7 @@ const App = () => {
                       updateCurrentSelection={updateCurrentSelection}
                       key={"instaFollowing"}
                       id={"instaFollowing"}
-                    />
-                    <OpenInput
-                      question={
-                        "Approximately, how many Facebook followers do you have? Enter 'NA' if you do not use this platform."
-                      }
-                      updateCurrentSelection={updateCurrentSelection}
-                      key={"facebookFollowers"}
-                      id={"facebookFollowers"}
-                    />
-                    <OpenInput
-                      question={
-                        "Approximately, how many accounts do you follow on Facebook? Enter 'NA' if you do not use this platform."
-                      }
-                      updateCurrentSelection={updateCurrentSelection}
-                      key={"facebookFollowing"}
-                      id={"facebookFollowing"}
-                    />
+                    />                  
                     <LadderSlide
                       promptText="Think of this ladder as representing where students stand at Cornell University."
                       promptText2="At the top of the ladder are the students who are the best off. At the bottom are the students who are the worst off. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom."
