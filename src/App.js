@@ -31,7 +31,7 @@ const App = () => {
   const [slideIndex, setSlideIndex] = useState(-1);
   const [nextSlideToBackTo, setNextSlideToBackTo] = useState([]);
 const [scaleOrder] = useState(() =>
-  shuffleArray(["UCLAMini", "MHC", "attachmentcat", "attachmentcont"])
+  shuffleArray(["UCLA", "MHC", "attachment"])
 );
 const [demoOrder] = useState(() =>
   shuffleArray([
@@ -718,8 +718,8 @@ const [demoOrder] = useState(() =>
                       questions={[
                         "How important is this team to you?",
                       ]}
-                      right={"Not at all"}
-                      left={"A great deal"}
+                      left={"Not at all"}
+                      right={"A great deal"}
                       possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
                       updateCurrentSelection={updateCurrentSelection}
                       id={"important"}
@@ -738,7 +738,11 @@ const [demoOrder] = useState(() =>
                       id={"timespent"}
                       key={"timepsent"}
                     />
-                        
+						
+                        {scaleOrder.map((item) => {
+
+  if (item === "UCLA") {
+    return (
                     <LikertScaleSlide
                       scalePrompt={"Please fill out this scale about yourself"}
                       questions={[
@@ -753,6 +757,10 @@ const [demoOrder] = useState(() =>
                       id={"UCLAMini"}
                       key={"UCLAMini"}
                     />
+						  );
+  }
+	   if (item === "MHC") {
+    return (
                     <LikertScaleSlide
                       scalePrompt={"Please fill out this scale. ​​During the past month, how often did you feel… "}
                       questions={[
@@ -777,7 +785,12 @@ const [demoOrder] = useState(() =>
                       updateCurrentSelection={updateCurrentSelection}
                       id={"MHC"}
                       key={"MHC"}
-                    />                    
+                    />      
+						  );
+  }
+		   if (item === "attachment") {
+    return (
+		    <div key="attachment">
                     <MultipleChoiceSlide
                       question={"Please indicate which general relationship style best describes you or is closest to the way you are"}
                       options={[
@@ -808,10 +821,16 @@ const [demoOrder] = useState(() =>
                       id={"attachmentcont"}
                       key={"attachmentcont"}
                     />
+						  )}
+												       </div>
+							   );
+	  							}
  </>
                 }
               </div>
             )}
+
+			 
 					 {slideIndex === 24 && (
               <div>
                {demoOrder.map((item) => {
