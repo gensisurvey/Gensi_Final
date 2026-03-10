@@ -821,7 +821,6 @@ const [demoOrder] = useState(() =>
                       id={"attachmentcont"}
                       key={"attachmentcont"}
                     />
-						  )}
 												       </div>
 							   );
 	  							}
