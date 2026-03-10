@@ -877,6 +877,7 @@ const [demoOrder] = useState(() =>
 
 						  if (item === "parentNumber") {
         return (
+			    <div key="parentNumber">
                     <MultipleChoiceSlide
                       question={
                         "Growing up, how many parent / guardian(s) were in your household?"
@@ -927,11 +928,14 @@ const [demoOrder] = useState(() =>
                         id={"par2Edu"}
                       />
                     )}
+				       </div>
 				    );
 	  							}
 
 							if (item === "genFriends") {
         return (
+    <div key="genFriends">
+
                     <OpenInput
                       question={
                         "Approximately, how many friends do you have? (People you socialize with, study with, discuss thoughts and feelings with, share interests with, etc.)"
@@ -948,10 +952,12 @@ const [demoOrder] = useState(() =>
                         id={"closeFriends"}
                       />
                     )}
+												       </div>
 							   );
 	  							}
 							if (item === "instaFollowers") {
         return (
+			  <div key="instaFollowers">
                     <OpenInput
                       question={
                         "Approximately, how many Instagram followers do you have? Enter 'NA' if you do not use this platform."
@@ -968,6 +974,7 @@ const [demoOrder] = useState(() =>
                       key={"instaFollowing"}
                       id={"instaFollowing"}
                     />    
+						    </div>
 			 );
 	  							}
 
