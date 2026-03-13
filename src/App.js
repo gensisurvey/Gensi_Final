@@ -47,7 +47,7 @@ const [demoOrder] = useState(() =>
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
-  const TOTAL_SLIDES = 36; // added 1 for demographics,
+  const TOTAL_SLIDES = 37; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
@@ -229,8 +229,7 @@ setNextBlocked(false);
       setSlideIndex(slideIndex + 1);
 
       add_to_firebase();
-    }
-  };
+      };
 
   // overrides next blocked, used if yes is clicked on override screen
   const nextBlockOverride = (tf) => {
@@ -403,12 +402,39 @@ setNextBlocked(false);
               />
             )}
 
+					{slideIndex === 0 && (
+  <MultipleChoiceSlide
+    question={
+      <span>
+        <p><strong>Hi, welcome to our study!</strong></p>
+
+        <p>
+          In this survey, we will ask you questions about the people on your team.
+        </p>
+
+        <p>
+          Some questions will ask about your own experiences, while others will
+          ask about the relationships between members of your team.
+        </p>
+
+        <p>
+          Please answer as honestly as possible. There are no right or wrong
+          answers.
+        </p>
+      </span>
+    }
+    options={["Continue"]}
+    updateCurrentSelection={updateCurrentSelection}
+    key={"instructions"}
+    id={"instructions"}
+  />
+)}
             {/* =====================================================
           
           Slides for inputting names into different categories 
           
           =====================================================*/}
-            {slideIndex === 0 && (
+            {slideIndex === 1 && (
               <NodeInputSlide
                 promptText="Some of the people on this team may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
                 promptText2="Think about any individuals in your team who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
@@ -425,7 +451,7 @@ setNextBlocked(false);
           Slides for asking which of the nominated will turn to you 
           
           =====================================================*/}
-          {/*  {slideIndex === 1 && (
+          {/*  {slideIndex === 2 && (
               <NodeConnect1Slide
                 promptText={
                   <span> 
@@ -454,7 +480,7 @@ setNextBlocked(false);
           
           =====================================================*/}
 
-            {slideIndex === 1 && (
+            {slideIndex === 2 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -475,7 +501,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_0"}
               />
             )}
-            {slideIndex === 2 && (
+            {slideIndex === 3 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -496,7 +522,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_1"}
               />
             )}
-            {slideIndex === 3 && (
+            {slideIndex === 4 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -517,7 +543,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_2"}
               />
             )}
-            {slideIndex === 4 && (
+            {slideIndex === 5 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -538,7 +564,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_3"}
               />
             )}
-            {slideIndex === 5 && (
+            {slideIndex === 6 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -559,7 +585,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_4"}
               />
             )}
-            {slideIndex === 6 && (
+            {slideIndex === 7 && (
               <NodeConnect1Slide
                 promptText={ 
                   <span>
@@ -580,7 +606,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_5"}
               />
             )}
-            {slideIndex === 7 && (
+            {slideIndex === 8 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -601,7 +627,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_6"}
               />
             )}
-            {slideIndex === 8 && (
+            {slideIndex === 9 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -622,7 +648,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_7"}
               />
             )}
-            {slideIndex === 9 && (
+            {slideIndex === 10 && (
               <NodeConnect1Slide
                 promptText={
                  <span>
@@ -643,7 +669,7 @@ setNextBlocked(false);
                 id={"all_people_turn_to_8"}
               />
             )}
-            {slideIndex === 10 && (
+            {slideIndex === 11 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -670,11 +696,11 @@ setNextBlocked(false);
           Ladder slides - team
           
           =====================================================*/}
-            {slideIndex >= 11 &&
-              slideIndex <= 11 + selectionData.max_nom &&
+            {slideIndex >= 12 &&
+              slideIndex <= 12 + selectionData.max_nom &&
               selectionData["clockwise_name_order"].map(
                 (value, index) =>
-                  slideIndex === index + 11 && (
+                  slideIndex === index + 12 && (
                     <LadderSlide
                       promptText="Think of this ladder as representing your team."
                      promptText2={
@@ -720,7 +746,7 @@ setNextBlocked(false);
    Ladder instructions - US
           
 =====================================================*/}
-{slideIndex === 22 && (
+{slideIndex === 23 && (
   <div style={{ maxWidth: "700px", margin: "0 auto" }}>
 
     <p>
@@ -752,11 +778,11 @@ setNextBlocked(false);
           Ladder slides - US
           
           =====================================================*/}
-            {slideIndex >= 23 &&
-              slideIndex <= 23 + selectionData.max_nom &&
+            {slideIndex >= 24 &&
+              slideIndex <= 24 + selectionData.max_nom &&
               selectionData["clockwise_name_order"].map(
                 (value, index) =>
-                  slideIndex === index + 23 && (
+                  slideIndex === index + 24 && (
                     <LadderSlide
                       promptText="Think of this ladder as representing the United States."
                      promptText2={
@@ -801,7 +827,7 @@ setNextBlocked(false);
                Demographics slides
 
           =====================================================*/}
-            {slideIndex === 34 && (
+            {slideIndex === 35 && (
               <div>
                		<>
                      <OpenInput
@@ -950,7 +976,7 @@ setNextBlocked(false);
 )}
 
 			 
-					 {slideIndex === 35 && (
+					 {slideIndex === 36 && (
               <div>
                {demoOrder.map((item) => {
 
@@ -1144,7 +1170,7 @@ setNextBlocked(false);
           Survey Feedback question
           
           =====================================================*/}
-            {slideIndex === 36 && (
+            {slideIndex === 37 && (
               <NodeInputSlide
                 promptText="Thank you for completing the study. Please provide us with feedback (if any) in the textbox below."
                 inlineText="Write feedback"
@@ -1155,7 +1181,7 @@ setNextBlocked(false);
               />
             )}
 
-			{showUnansweredWarning && (slideIndex === 34 || slideIndex === 35) && (
+			{showUnansweredWarning && (slideIndex === 35 || slideIndex === 36) && (
   <div style={{
     margin: "12px 30px",
     padding: "12px 16px",
