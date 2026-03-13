@@ -47,7 +47,7 @@ const [demoOrder] = useState(() =>
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 
-  const TOTAL_SLIDES = 36; // added 1 for demographics,
+  const TOTAL_SLIDES = 35; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
@@ -240,7 +240,7 @@ const [demoOrder] = useState(() =>
           Consent
           
           =====================================================*/}
-      					{slideIndex === 0 && (
+      					{slideIndex === -1 && (
   <MultipleChoiceSlide
     question={
 		<span>
@@ -381,7 +381,7 @@ const [demoOrder] = useState(() =>
           Slides for inputting names into different categories 
           
           =====================================================*/}
-            {slideIndex === 1 && (
+            {slideIndex === 0 && (
               <NodeInputSlide
                 promptText="Some of the people on this team may be a safe person for you to turn to, during challenging, threatening, or uncertain times."
                 promptText2="Think about any individuals in your team who are a safe person for you to turn to when you are having a bad day or had a negative experience. Please nominate each person who comes to mind. Type in the first name of each person."
@@ -427,7 +427,7 @@ const [demoOrder] = useState(() =>
           
           =====================================================*/}
 
-            {slideIndex === 2 && (
+            {slideIndex === 1 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -448,7 +448,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_0"}
               />
             )}
-            {slideIndex === 3 && (
+            {slideIndex === 2 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -469,7 +469,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_1"}
               />
             )}
-            {slideIndex === 4 && (
+            {slideIndex === 3 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -490,7 +490,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_2"}
               />
             )}
-            {slideIndex === 5 && (
+            {slideIndex === 4 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -511,7 +511,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_3"}
               />
             )}
-            {slideIndex === 6 && (
+            {slideIndex === 5 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -532,7 +532,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_4"}
               />
             )}
-            {slideIndex === 7 && (
+            {slideIndex === 6 && (
               <NodeConnect1Slide
                 promptText={ 
                   <span>
@@ -553,7 +553,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_5"}
               />
             )}
-            {slideIndex === 8 && (
+            {slideIndex === 7 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -574,7 +574,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_6"}
               />
             )}
-            {slideIndex === 9 && (
+            {slideIndex === 8 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -595,7 +595,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_7"}
               />
             )}
-            {slideIndex === 10 && (
+            {slideIndex === 9 && (
               <NodeConnect1Slide
                 promptText={
                  <span>
@@ -616,7 +616,7 @@ const [demoOrder] = useState(() =>
                 id={"all_people_turn_to_8"}
               />
             )}
-            {slideIndex === 11 && (
+            {slideIndex === 10 && (
               <NodeConnect1Slide
                 promptText={
                   <span>
@@ -643,11 +643,11 @@ const [demoOrder] = useState(() =>
           Ladder slides - team
           
           =====================================================*/}
-            {slideIndex >= 12 &&
-              slideIndex <= 12 + selectionData.max_nom &&
+            {slideIndex >= 11 &&
+              slideIndex <= 11 + selectionData.max_nom &&
               selectionData["clockwise_name_order"].map(
                 (value, index) =>
-                  slideIndex === index + 12 && (
+                  slideIndex === index + 11 && (
                     <LadderSlide
                       promptText="Think of this ladder as representing your team."
                      promptText2={
@@ -692,11 +692,11 @@ const [demoOrder] = useState(() =>
           Ladder slides - US
           
           =====================================================*/}
-            {slideIndex >= 23 &&
-              slideIndex <= 23 + selectionData.max_nom &&
+            {slideIndex >= 22 &&
+              slideIndex <= 22 + selectionData.max_nom &&
               selectionData["clockwise_name_order"].map(
                 (value, index) =>
-                  slideIndex === index + 23 && (
+                  slideIndex === index + 22 && (
                     <LadderSlide
                       promptText="Think of this ladder as representing the United States."
                      promptText2={
@@ -741,7 +741,7 @@ const [demoOrder] = useState(() =>
                Demographics slides
 
           =====================================================*/}
-            {slideIndex === 34 && (
+            {slideIndex === 33 && (
               <div>
                		<>
                      <OpenInput
@@ -883,7 +883,7 @@ const [demoOrder] = useState(() =>
 )}
 
 			 
-					 {slideIndex === 35 && (
+					 {slideIndex === 34 && (
               <div>
                {demoOrder.map((item) => {
 
@@ -1077,7 +1077,7 @@ const [demoOrder] = useState(() =>
           Survey Feedback question
           
           =====================================================*/}
-            {slideIndex === 36 && (
+            {slideIndex === 35 && (
               <NodeInputSlide
                 promptText="Thank you for completing the study. Please provide us with feedback (if any) in the textbox below."
                 inlineText="Write feedback"
