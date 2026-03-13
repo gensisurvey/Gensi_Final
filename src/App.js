@@ -179,8 +179,12 @@ const [demoOrder] = useState(() =>
       console.log(currentSelection);
     }
 
-    // if there is no input, go to last slide
-    if (slideIndex === -1 && currentSelection.data === null) {
+     // if there is no input on consent slide, block — force them to choose
+    if (slideIndex === -1 && (currentSelection === null || currentSelection.data === null)) {
+      setNextBlocked(true);
+      return;
+      // if user does not consent, go to last slide
+    } else if (slideIndex === -1 && currentSelection.data === "no")
       setSlideIndex(TOTAL_SLIDES);
       setSubmittedToFirebase(true);
       // if user does not consent, go to last slide
