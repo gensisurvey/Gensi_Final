@@ -701,16 +701,46 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                   )
               )}
 
+
+{/* =====================================================
+          
+   Ladder instructions - US
+          
+=====================================================*/}
+{slideIndex === 22 && (
+  <div style={{ textAlign: "center" }}>
+    
+    <p style={{ maxWidth: "700px", margin: "0 auto 20px auto" }}>
+      This is another ladder. Think of this ladder as representing the United States.
+    </p>
+
+    <p style={{ maxWidth: "700px", margin: "0 auto 20px auto" }}>
+      At the top of the ladder are the people who are the best off in the United States.
+      At the bottom are the people who are the worst off in the United States.
+    </p>
+
+    <img
+      src={LadderImg}
+      alt="Status ladder"
+      style={{ maxHeight: "400px" }}
+    />
+
+    <p style={{ marginTop: "20px" }}>
+      In the next few questions, you will indicate where different people stand on this ladder. Please click "Next" to continue.
+    </p>
+
+  </div>
+)}
 {/* =====================================================
           
           Ladder slides - US
           
           =====================================================*/}
-            {slideIndex >= 22 &&
-              slideIndex <= 22 + selectionData.max_nom &&
+            {slideIndex >= 23 &&
+              slideIndex <= 23 + selectionData.max_nom &&
               selectionData["clockwise_name_order"].map(
                 (value, index) =>
-                  slideIndex === index + 22 && (
+                  slideIndex === index + 23 && (
                     <LadderSlide
                       promptText="Think of this ladder as representing the United States."
                      promptText2={
@@ -755,7 +785,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                Demographics slides
 
           =====================================================*/}
-            {slideIndex === 33 && (
+            {slideIndex === 34 && (
               <div>
                		<>
                      <OpenInput
@@ -904,7 +934,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
 )}
 
 			 
-					 {slideIndex === 34 && (
+					 {slideIndex === 35 && (
               <div>
                {demoOrder.map((item) => {
 
@@ -1098,7 +1128,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
           Survey Feedback question
           
           =====================================================*/}
-            {slideIndex === 35 && (
+            {slideIndex === 36 && (
               <NodeInputSlide
                 promptText="Thank you for completing the study. Please provide us with feedback (if any) in the textbox below."
                 inlineText="Write feedback"
@@ -1109,7 +1139,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
               />
             )}
 
-			{showUnansweredWarning && (slideIndex === 33 || slideIndex === 34) && (
+			{showUnansweredWarning && (slideIndex === 34 || slideIndex === 35) && (
   <div style={{
     margin: "12px 30px",
     padding: "12px 16px",
