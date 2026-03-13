@@ -184,10 +184,6 @@ const [demoOrder] = useState(() =>
       setNextBlocked(true);
       return;
       // if user does not consent, go to last slide
-    } else if (slideIndex === -1 && currentSelection.data === "no")
-      setSlideIndex(TOTAL_SLIDES);
-      setSubmittedToFirebase(true);
-      // if user does not consent, go to last slide
     } else if (slideIndex === -1 && currentSelection.data === "no") {
       setSlideIndex(TOTAL_SLIDES);
       setSubmittedToFirebase(true);
