@@ -182,21 +182,22 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
  // Consent slide logic
 if (slideIndex === -1) {
 
+  const consent = selectionData["consent"];
+
   // block if nothing selected
-  if (!currentSelection || currentSelection.data === null) {
+  if (!consent) {
     setNextBlocked(true);
     return;
   }
 
   // if user does not consent
-  if (currentSelection.data === "no") {
+  if (consent === "no") {
     setSlideIndex(TOTAL_SLIDES);
     setSubmittedToFirebase(true);
     return;
   }
 
 }
-
 // if slide itself blocks next
 if (currentSelection?.nextBlocked) {
   setNextBlocked(true);
