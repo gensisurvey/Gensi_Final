@@ -204,10 +204,9 @@ if (currentSelection?.nextBlocked) {
   setNextBlocked(true);
   return;
 }
-      // the user can move forward, state needs to be updated, next blocked needs to be removed
-   } else {
-      setNextBlocked(false);
 
+// the user can move forward
+setNextBlocked(false);
       // Soft prompt for slides 34 & 35: warn if unanswered, allow proceeding on second click
       if (slideIndex === 34 || slideIndex === 35) {
         const slide34RequiredKeys = ["turnedtoavg", "turntoavg", "important", "timespent"];
