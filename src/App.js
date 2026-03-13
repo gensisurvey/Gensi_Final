@@ -653,8 +653,8 @@ const [demoOrder] = useState(() =>
                      promptText2={
                        <div>
                        <p>
-      At the top of the ladder are the people who are the best in the team.
-      At the bottom are the people who are the worst in the team.
+      At the top of the ladder are the people who have the highest status in the team.
+      At the bottom are the people who have the lowest status in the team.
     </p>
     <p>
       Where do you think{" "}
