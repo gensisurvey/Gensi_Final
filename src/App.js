@@ -46,7 +46,7 @@ const [demoOrder] = useState(() =>
   const [currentSelection, setCurrentSelection] = useState(null);
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
-
+const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   const TOTAL_SLIDES = 35; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
@@ -191,8 +191,21 @@ const [demoOrder] = useState(() =>
     } else if (currentSelection.nextBlocked) {
       setNextBlocked(true);
       // the user can move forward, state needs to be updated, next blocked needs to be removed
-    } else {
+   } else {
       setNextBlocked(false);
+
+      // Soft prompt for slides 34 & 35: warn if unanswered, allow proceeding on second click
+      if (slideIndex === 34 || slideIndex === 35) {
+        const slide34RequiredKeys = ["turnedtoavg", "turntoavg", "important", "timespent"];
+        const slide35RequiredKeys = ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "instaFollowers", "ladderCU"];
+        const requiredKeys = slideIndex === 34 ? slide34RequiredKeys : slide35RequiredKeys;
+        const hasUnanswered = requiredKeys.some(k => !selectionData[k]);
+        if (hasUnanswered && !showUnansweredWarning) {
+          setShowUnansweredWarning(true);
+          return;
+        }
+      }
+      setShowUnansweredWarning(false);
 
       // setting next slide to back to order for previous slide
       if (slideIndex >= 0) {
@@ -221,9 +234,10 @@ const [demoOrder] = useState(() =>
   // logic for going to previous slide
   const goBackSlide = () => {
     if (slideIndex > 0) {
+		
       const nextPrevious = [...nextSlideToBackTo];
       const previous = nextPrevious.pop(slideIndex);
-
+		setShowUnansweredWarning(false);
       setSlideIndex(previous);
       setNextSlideToBackTo(nextPrevious);
     }
@@ -745,17 +759,24 @@ const [demoOrder] = useState(() =>
               <div>
                		<>
                      <OpenInput
-                      question={
-                        "Approximately, how many people on the team do you think would turn to you for support if they needed it?"
-                      }
+                      question=
+					  {
+						  <span>
+      Approximately, how many people on the team do you think would{" "}
+      <b>turn to you</b> for support if they needed it?
+    </span> 
+		  }
                       updateCurrentSelection={updateCurrentSelection}
                       key={"turnedtoavg"}
                       id={"turnedtoavg"}
                     />
                          <OpenInput
                       question={
-                        "Approximately, how many people on the team could you turn to for support if you needed it?"
-                      }
+                        <span>
+      Approximately, how many people on the team could {" "}
+      <b>you turn to</b> for support if you needed it?
+    </span> 
+		  }
                       updateCurrentSelection={updateCurrentSelection}
                       key={"turntoavg"}
                       id={"turntoavg"}
@@ -1087,6 +1108,20 @@ const [demoOrder] = useState(() =>
                 include_svg={false}
               />
             )}
+
+			{showUnansweredWarning && (slideIndex === 33 || slideIndex === 34) && (
+  <div style={{
+    margin: "12px 30px",
+    padding: "12px 16px",
+    backgroundColor: "#fff8e1",
+    border: "1px solid #f0c040",
+    borderRadius: "6px",
+    color: "#7a5c00",
+    fontWeight: 500,
+  }}>
+    ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Next</strong> again to continue anyway.
+  </div>
+)}
             <NextSlideButton
               nextBlockOverride={nextBlockOverride}
               nextBlocked={nextBlocked}
