@@ -182,7 +182,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
  // Consent slide logic
 if (slideIndex === -1) {
 
-  const consent = selectionData["consent"];
+  const consent = currentSelection?.data;
 
   // block if nothing selected
   if (!consent) {
