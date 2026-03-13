@@ -179,17 +179,31 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
       console.log(currentSelection);
     }
 
-     // if there is no input on consent slide, block — force them to choose
-    if (slideIndex === -1 && (currentSelection === null || currentSelection.data === null)) {
-      setNextBlocked(true);
-      return;
-      // if user does not consent, go to last slide
-    } else if (slideIndex === -1 && currentSelection.data === "no") {
-      setSlideIndex(TOTAL_SLIDES);
-      setSubmittedToFirebase(true);
-      // if the state of current slide is to not allow user to move forward, bring up override screen
-    } else if (currentSelection.nextBlocked) {
-      setNextBlocked(true);
+ // Consent slide logic
+if (slideIndex === -1) {
+
+  const consent = selectionData["consent"];
+
+  // block if nothing selected
+  if (!consent) {
+    setNextBlocked(true);
+    return;
+  }
+
+  // if user does not consent, go to last slide
+  if (consent === "no") {
+    setSlideIndex(TOTAL_SLIDES);
+    setSubmittedToFirebase(true);
+    return;
+  }
+
+}
+
+// if slide itself blocks next
+if (currentSelection?.nextBlocked) {
+  setNextBlocked(true);
+  return;
+}
       // the user can move forward, state needs to be updated, next blocked needs to be removed
    } else {
       setNextBlocked(false);
