@@ -758,7 +758,7 @@ setNextBlocked(false);
         </p>
 
         <p>
-          <img src={LadderImg} alt="Status ladder" />
+          <img src={LadderImg} alt="Status ladder" height="250" />
         </p>
 
         <p>
