@@ -47,7 +47,7 @@ const [demoOrder] = useState(() =>
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
-  const TOTAL_SLIDES = 35; // added 1 for demographics,
+  const TOTAL_SLIDES = 36; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
@@ -708,25 +708,28 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
           
 =====================================================*/}
 {slideIndex === 22 && (
-  <div style={{ textAlign: "center" }}>
-    
-    <p style={{ maxWidth: "700px", margin: "0 auto 20px auto" }}>
+  <div style={{ maxWidth: "700px", margin: "0 auto" }}>
+
+    <p>
       This is another ladder. Think of this ladder as representing the United States.
     </p>
 
-    <p style={{ maxWidth: "700px", margin: "0 auto 20px auto" }}>
+    <p>
       At the top of the ladder are the people who are the best off in the United States.
       At the bottom are the people who are the worst off in the United States.
     </p>
 
-    <img
-      src={LadderImg}
-      alt="Status ladder"
-      style={{ maxHeight: "400px" }}
-    />
+    <div style={{ textAlign: "center", margin: "20px 0" }}>
+      <img
+        src={LadderImg}
+        alt="Status ladder"
+        style={{ height: "300px" }}
+      />
+    </div>
 
-    <p style={{ marginTop: "20px" }}>
-      In the next few questions, you will indicate where different people stand on this ladder. Please click "Next" to continue.
+    <p>
+      In the next few questions, you will indicate where different people stand on this ladder.
+      Please click <strong>Next</strong> to continue.
     </p>
 
   </div>
