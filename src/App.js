@@ -182,16 +182,14 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
  // Consent slide logic
 if (slideIndex === -1) {
 
-  const consent = selectionData["consent"];
-
   // block if nothing selected
-  if (!consent) {
+  if (!currentSelection || currentSelection.data === null) {
     setNextBlocked(true);
     return;
   }
 
-  // if user does not consent, go to last slide
-  if (consent === "no") {
+  // if user does not consent
+  if (currentSelection.data === "no") {
     setSlideIndex(TOTAL_SLIDES);
     setSubmittedToFirebase(true);
     return;
@@ -747,34 +745,32 @@ setNextBlocked(false);
           
 =====================================================*/}
 {slideIndex === 23 && (
-  <div>
+  <MultipleChoiceSlide
+    question={
+      <span>
+        <p>
+          This is another ladder. Think of this ladder as representing the United States.
+        </p>
 
-    <span>
+        <p>
+          At the top of the ladder are the people who are the best off in the United States.
+          At the bottom are the people who are the worst off in the United States.
+        </p>
 
-      <p>
-        This is another ladder. Think of this ladder as representing the United States.
-      </p>
+        <p>
+          <img src={LadderImg} alt="Status ladder" />
+        </p>
 
-      <p>
-        At the top of the ladder are the people who are the best off in the United States.
-        At the bottom are the people who are the worst off in the United States.
-      </p>
-
-      <div style={{ textAlign: "center", margin: "20px 0" }}>
-        <img
-          src={LadderImg}
-          alt="Status ladder"
-          style={{ height: "300px" }}
-        />
-      </div>
-
-      <p>
-        In the next few questions, you will indicate where different people stand on this ladder.
-      </p>
-
-    </span>
-
-  </div>
+        <p>
+          In the next few questions, you will indicate where different people stand on this ladder.
+        </p>
+      </span>
+    }
+    options={[]}
+    updateCurrentSelection={updateCurrentSelection}
+    key={"us_ladder_instructions"}
+    id={"us_ladder_instructions"}
+  />
 )}
 {/* =====================================================
           
