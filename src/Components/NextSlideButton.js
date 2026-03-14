@@ -3,8 +3,8 @@
 import React from 'react';
 import './NextSlideButton.css'; // Import CSS file for styling
 
-const NextSlideButton = ({ onClick, nextBlocked, nextBlockOverride }) => {
-
+const NextSlideButton = ({ onClick, nextBlocked, nextBlockOverride, disabled }) => {
+  
   const handleOverrideYes = () => {
     nextBlockOverride(true)
   }
@@ -25,7 +25,7 @@ const NextSlideButton = ({ onClick, nextBlocked, nextBlockOverride }) => {
       </div>
 
       }
-      <button onClick={onClick} className={nextBlocked ? 'flash next-slide-button' : 'next-slide-button'}>
+      <button onClick={onClick} disabled={disabled} className={nextBlocked ? 'flash next-slide-button' : 'next-slide-button'} style={{ opacity: disabled ? 0.4 : 1, cursor: disabled ? 'not-allowed' : 'pointer' }}>
         Next Slide
       </button>
     </div>
