@@ -46,6 +46,7 @@ const [demoOrder] = useState(() =>
   const [currentSelection, setCurrentSelection] = useState(null);
   const [nextBlocked, setNextBlocked] = useState(false);
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
+	const [consentRequired, setConsentRequired] = useState(false);
 const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   const TOTAL_SLIDES = 37; // added 1 for demographics,
   const TESTING_MODE = false;
@@ -184,11 +185,12 @@ if (slideIndex === -1) {
 
   const consent = currentSelection?.key === "consent" ? currentSelection?.data : selectionData["consent"];
 
-  // block if nothing selected
+ // block if nothing selected
   if (!consent) {
-    setNextBlocked(true);
+    setConsentRequired(true);
     return;
   }
+  setConsentRequired(false);
 
   // if user does not consent
   if (consent === "no") {
@@ -1194,11 +1196,13 @@ setNextBlocked(false);
     ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Next</strong> again to continue anyway.
   </div>
 )}
-            <NextSlideButton
-              nextBlockOverride={nextBlockOverride}
-              nextBlocked={nextBlocked}
-              onClick={handleNextSlide}
-            />
+          				  <NextSlideButton
+  nextBlockOverride={nextBlockOverride}
+  nextBlocked={nextBlocked}
+  onClick={handleNextSlide}
+  disabled={consentRequired}
+/>
+				  
             {slideIndex > 0 && selectionData["consent"] === "yes" && (
               <PreviousSlideButton goBackSlide={goBackSlide} />
             )}
