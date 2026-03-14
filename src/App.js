@@ -172,6 +172,8 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
 
     setCurrentSelection(option);
     setSelectionData(next_data_add);
+	if (option.key === "consent") setConsentRequired(false);
+
   };
 
   // logic for transitioning to the next slide
