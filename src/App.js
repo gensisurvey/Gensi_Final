@@ -704,10 +704,11 @@ setNextBlocked(false);
                 (value, index) =>
                   slideIndex === index + 12 && (
                     <LadderSlide
-                      promptText=
+                      promptText={
 					<>
-					"Think of this ladder as representing <b>your team.</b>"
+					Think of this ladder as representing <b>your team.</b>
 			  </>
+			}
                      promptText2={
                        <div>
                        <p>
