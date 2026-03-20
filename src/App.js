@@ -712,10 +712,10 @@ setNextBlocked(false);
                      promptText2={
                        <div>
                        <p>
-      At the top of the ladder are the people who have the highest status <b>in the team</b>.
+      At the top of the ladder are the people who have the highest status <b>in the team.</b>
 			 </p>
     <p>
-      At the bottom are the people who have the lowest status <b>in the team</b>.
+      At the bottom are the people who have the lowest status <b>in the team.</b>
     </p>
     <p>
       Where do you think{" "}
