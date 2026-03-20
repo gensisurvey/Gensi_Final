@@ -712,7 +712,8 @@ setNextBlocked(false);
                        <div>
                        <p>
       At the top of the ladder are the people who have the highest status  <b>in the team </b>.
-			 <br />
+			 </p>
+    <p>
       At the bottom are the people who have the lowest status  <b>in the team </b>.
     </p>
     <p>
