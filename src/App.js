@@ -793,12 +793,18 @@ setNextBlocked(false);
                 (value, index) =>
                   slideIndex === index + 24 && (
                     <LadderSlide
-                      promptText="Think of this ladder as representing the United States."
+                      promptText={
+					<>
+		Think of this ladder as representing <b>the United States.</b>
+			  </>
+			}
                      promptText2={
                        <div>
                        <p>
-      At the top of the ladder are the people who are the best off in the United States.
-      At the bottom are the people who are the worst off in the United States.
+      At the top of the ladder are the people who are the best off in <b>the United States.</b>
+</p>
+    <p>
+      At the bottom are the people who are the worst off in <b> the United States.</b>
     </p>
     <p>
       Where do you think{" "}
