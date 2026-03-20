@@ -40,8 +40,7 @@ const [demoOrder] = useState(() =>
 	  "famIncome",
 	  "parentNumber",
 	  "genFriends",
-	  "instaFollowers",
-	  "ladderCU"  ])
+	  	  "ladderCU"  ])
 );
   const [currentSelection, setCurrentSelection] = useState(null);
   const [nextBlocked, setNextBlocked] = useState(false);
@@ -213,7 +212,7 @@ setNextBlocked(false);
       // Soft prompt for slides 34 & 35: warn if unanswered, allow proceeding on second click
       if (slideIndex === 34 || slideIndex === 35) {
         const slide34RequiredKeys = ["turnedtoavg", "turntoavg", "important", "timespent"];
-        const slide35RequiredKeys = ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "instaFollowers", "ladderCU"];
+        const slide35RequiredKeys = ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"];
         const requiredKeys = slideIndex === 34 ? slide34RequiredKeys : slide35RequiredKeys;
         const hasUnanswered = requiredKeys.some(k => !selectionData[k]);
         if (hasUnanswered && !showUnansweredWarning) {
@@ -952,7 +951,7 @@ setNextBlocked(false);
                     />
 
                     <LikertScaleSlide
-                      scalePrompt={"Please rate each of the relationship styles above to indicate how well or poorly each description corresponds to your general relationship style."}
+                      scalePrompt={"Please rate each of the relationship styles below to indicate how well or poorly each description corresponds to your general relationship style."}
                       questions={[
                         "It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.",
                         "I am uncomfortable getting close to others. I want emotionally close relationships, but I find it difficult to trust others completely, or to depend on them. I worry that I will be hurt if I allow myself to become too close to others.",
