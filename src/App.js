@@ -712,10 +712,10 @@ setNextBlocked(false);
                      promptText2={
                        <div>
                        <p>
-      At the top of the ladder are the people who have the highest status  <b>in the team </b>.
+      At the top of the ladder are the people who have the highest status <b>in the team</b>.
 			 </p>
     <p>
-      At the bottom are the people who have the lowest status  <b>in the team </b>.
+      At the bottom are the people who have the lowest status <b>in the team</b>.
     </p>
     <p>
       Where do you think{" "}
@@ -804,7 +804,7 @@ setNextBlocked(false);
       At the top of the ladder are the people who are the best off in <b>the United States.</b>
 </p>
     <p>
-      At the bottom are the people who are the worst off in <b> the United States.</b>
+      At the bottom are the people who are the worst off in <b>the United States.</b>
     </p>
     <p>
       Where do you think{" "}
@@ -1168,6 +1168,7 @@ setNextBlocked(false);
               />
             )}
 
+			{/*
 			{showUnansweredWarning && (slideIndex >= 35 && slideIndex <= 40) && (
   <div style={{
     margin: "12px 30px",
@@ -1180,7 +1181,7 @@ setNextBlocked(false);
   }}>
     ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Next</strong> again to continue anyway.
   </div>
-)}
+)}*/}
           				  <NextSlideButton
   nextBlockOverride={nextBlockOverride}
   nextBlocked={nextBlocked}
