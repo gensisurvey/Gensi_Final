@@ -1111,6 +1111,7 @@ setNextBlocked(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"genFriends"}
                       id={"genFriends"}
+					  numeric
                     />
                     {selectionData["genFriends"] && (
                       <OpenInput
@@ -1118,6 +1119,7 @@ setNextBlocked(false);
                         updateCurrentSelection={updateCurrentSelection}
                         key={"closeFriends"}
                         id={"closeFriends"}
+							numeric
                       />
                     )}
 												       </div>
