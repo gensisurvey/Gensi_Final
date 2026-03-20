@@ -1124,30 +1124,7 @@ setNextBlocked(false);
 												       </div>
 							   );
 	  							}
-							if (item === "instaFollowers") {
-        return (
-			  <div key="instaFollowers">
-                    <OpenInput
-                      question={
-                        "Approximately, how many Instagram followers do you have? Enter 'NA' if you do not use this platform."
-                      }
-                      updateCurrentSelection={updateCurrentSelection}
-                      key={"instaFollowers"}
-                      id={"instaFollowers"}
-                    />
-                    <OpenInput
-                      question={
-                        "Approximately, how many accounts do you follow on Instagram? Enter 'NA' if you do not use this platform."
-                      }
-                      updateCurrentSelection={updateCurrentSelection}
-                      key={"instaFollowing"}
-                      id={"instaFollowing"}
-                    />    
-						    </div>
-			 );
-	  							}
-
-						  if (item === "ladderCU") {
+							if (item === "ladderCU") {
         return (
                     <LadderSlide
                       promptText="Think of this ladder as representing where students stand at Cornell University."
