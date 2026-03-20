@@ -47,7 +47,7 @@ const [demoOrder] = useState(() =>
   const [submittedToFirebase, setSubmittedToFirebase] = useState(false);
 	const [consentRequired, setConsentRequired] = useState(false);
 const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
-  const TOTAL_SLIDES = 37; // added 1 for demographics,
+  const TOTAL_SLIDES = 41; // added 1 for demographics,
   const TESTING_MODE = false;
   const MAX_NOM = 10;
   const FIREBASE_DB_NAME = "Testing";
@@ -839,12 +839,11 @@ setNextBlocked(false);
 
             {/* =====================================================
           
-               Demographics slides
+               self=report slides
 
           =====================================================*/}
             {slideIndex === 35 && (
               <div>
-               		<>
                      <OpenInput
                       question=
 					  {
@@ -856,6 +855,7 @@ setNextBlocked(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"turnedtoavg"}
                       id={"turnedtoavg"}
+						  numeric
                     />
                          <OpenInput
                       question={
@@ -867,8 +867,13 @@ setNextBlocked(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"turntoavg"}
                       id={"turntoavg"}
+						  numeric
                     />
 <div style={{ height: "20px" }} />
+  </div>
+							  )}
+ {slideIndex === 36 && (
+	  <div>
                         <LikertScaleSlide
                       scalePrompt={"Please fill out this scale about your team"}
                       questions={[
@@ -893,12 +898,11 @@ setNextBlocked(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"timespent"}
                       key={"timepsent"}
-                    />
+						/>
+  </div>
+)}
 						
-                        {scaleOrder.map((item) => {
-
-  if (item === "UCLA") {
-    return (
+       {slideIndex === 37 && (
                     <LikertScaleSlide
                       scalePrompt={"Please fill out this scale about yourself"}
                       questions={[
@@ -913,10 +917,9 @@ setNextBlocked(false);
                       id={"UCLAMini"}
                       key={"UCLAMini"}
                     />
-						  );
-  }
-	   if (item === "MHC") {
-    return (
+)}
+
+	{slideIndex === 38 && (	  
                     <LikertScaleSlide
                       scalePrompt={"Please fill out this scale. ​​During the past month, how often did you feel… "}
                       questions={[
@@ -941,12 +944,11 @@ setNextBlocked(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"MHC"}
                       key={"MHC"}
-                    />      
-						  );
-  }
-		   if (item === "attachment") {
-    return (
-		    <div key="attachment">
+                   />
+)}
+
+		 {slideIndex === 39 && (
+  <div>
                     <MultipleChoiceSlide
                       question={"Please indicate which general relationship style best describes you or is closest to the way you are"}
                       options={[
@@ -977,21 +979,12 @@ setNextBlocked(false);
                       id={"attachmentcont"}
                       key={"attachmentcont"}
                    />
-                      </div>
-          );
-        }
-
-        return null;
-
-      })}
-
-    </>
-
   </div>
 )}
 
+
 			 
-					 {slideIndex === 36 && (
+					 {slideIndex === 40 && (
               <div>
                {demoOrder.map((item) => {
 
@@ -1164,7 +1157,7 @@ setNextBlocked(false);
           Survey Feedback question
           
           =====================================================*/}
-            {slideIndex === 37 && (
+            {slideIndex === 41 && (
               <NodeInputSlide
                 promptText="Thank you for completing the study. Please provide us with feedback (if any) in the textbox below."
                 inlineText="Write feedback"
@@ -1175,7 +1168,7 @@ setNextBlocked(false);
               />
             )}
 
-			{showUnansweredWarning && (slideIndex === 35 || slideIndex === 36) && (
+			{showUnansweredWarning && (slideIndex >= 35 && slideIndex <= 40) && (
   <div style={{
     margin: "12px 30px",
     padding: "12px 16px",
