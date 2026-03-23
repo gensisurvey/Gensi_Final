@@ -3,7 +3,7 @@ import { SelectionData } from "../SelectionData.js";
 
 import "./OpenInput.css";
 
-const MultipleChoiceSlide = ({ question, updateCurrentSelection, id }) => {
+const MultipleChoiceSlide = ({ question, updateCurrentSelection, id, numeric }) => {
   const [inputValue, setInputValue] = useState("");
   const { selectionData, setSelectionData } = useContext(SelectionData);
 
@@ -20,30 +20,38 @@ const MultipleChoiceSlide = ({ question, updateCurrentSelection, id }) => {
         key: id,
         data: null,
         override: false,
-        nextBlocked: true,
+        nextBlocked: val === "" || val === null,
       });
     } // Check if this line is correct
   }, []);
 
   const handleInput = (event) => {
-    const customValue = event.target.value;
-    setInputValue(customValue);
-    updateCurrentSelection({
-      key: id,
-      data: customValue,
-      override: false,
-      nextBlocked: false,
-    });
-  };
+  const val = event.target.value;
+
+  // If numeric, only allow digits
+  if (numeric && !/^\d*$/.test(val)) {
+    return;
+  }
+
+  setInputValue(val);
+
+  updateCurrentSelection({
+    key: id,
+    data: val,
+    override: false,
+    nextBlocked: val === "" || val === null,
+  });
+};
 
   return (
     <div className="option-input-container">
       <h2 className="option-input-question">{question}</h2>
-      <input
-        className="option-input-input"
-        value={inputValue}
-        onChange={handleInput}
-      />
+    <input
+  className="option-input-input"
+  type={numeric ? "number" : "text"}
+  value={inputValue}
+  onChange={handleInput}
+/>
     </div>
   );
 };
