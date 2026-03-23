@@ -718,10 +718,10 @@ setNextBlocked(false);
 			}
                      promptText2={
                        <div>
-                       <p>
+                       <p style={{ margin: "4px 0" }}>
       At the top of the ladder are the people who have the highest status <b>in the team.</b>
 			 </p>
-    <p>
+    <p style={{ margin: "4px 0" }}>
       At the bottom are the people who have the lowest status <b>in the team.</b>
     </p>
     <p>
@@ -807,10 +807,10 @@ setNextBlocked(false);
 			}
                      promptText2={
                        <div>
-                       <p>
+                       <p style={{ margin: "4px 0" }}>
       At the top of the ladder are the people who are the best off in <b>the United States.</b>
 </p>
-    <p>
+    <p style={{ margin: "4px 0" }}>
       At the bottom are the people who are the worst off in <b>the United States.</b>
     </p>
     <p>
