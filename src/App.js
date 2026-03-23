@@ -185,6 +185,11 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
       console.log(currentSelection);
     }
 
+  // Always reset the warning at the start of each Next attempt
+	    const warningWasShowing = showUnansweredWarning;
+  setShowUnansweredWarning(false);
+  // (will be re-set below if needed)
+	  
  // Consent slide logic
 if (slideIndex === -1) {
 
@@ -227,12 +232,11 @@ setNextBlocked(false);
     return val === undefined || val === null || val === "";
   });
 
-  if (hasUnanswered && !showUnansweredWarning) {
+  if (hasUnanswered && !warningWasShowing) {
     setShowUnansweredWarning(true);
     return;
   }
 }
-      setShowUnansweredWarning(false);
 
       // setting next slide to back to order for previous slide
       if (slideIndex >= 0) {
