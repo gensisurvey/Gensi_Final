@@ -218,7 +218,10 @@ setNextBlocked(false);
         const slide34RequiredKeys = ["turnedtoavg", "turntoavg", "important", "timespent"];
         const slide35RequiredKeys = ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"];
         const requiredKeys = slideIndex === 34 ? slide34RequiredKeys : slide35RequiredKeys;
-        const hasUnanswered = requiredKeys.some(k => !selectionData[k]);
+        const hasUnanswered = requiredKeys.some(k => {
+  const val = selectionData[k];
+  return val === undefined || val === null || val === "";
+});
         if (hasUnanswered && !showUnansweredWarning) {
           setShowUnansweredWarning(true);
           return;
