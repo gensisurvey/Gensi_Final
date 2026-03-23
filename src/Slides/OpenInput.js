@@ -6,25 +6,31 @@ import "./OpenInput.css";
 const MultipleChoiceSlide = ({ question, updateCurrentSelection, id, numeric }) => {
   const [inputValue, setInputValue] = useState("");
   const { selectionData, setSelectionData } = useContext(SelectionData);
-  const val = event.target.value; 
 
   useEffect(() => {
-    if (
-      selectionData &&
-      typeof selectionData === "object" &&
-      selectionData.hasOwnProperty(id)
-    ) {
-      // selectionData is defined, is an object, and has the specified key 'id'
-      setInputValue(selectionData[id]);
-    } else {
-      updateCurrentSelection({
-        key: id,
-        data: null,
-        override: false,
-        nextBlocked: val === "" || val === null,
-      });
-    } // Check if this line is correct
-  }, []);
+  if (
+    selectionData &&
+    typeof selectionData === "object" &&
+    selectionData.hasOwnProperty(id)
+  ) {
+    const existingVal = selectionData[id];
+    setInputValue(existingVal);
+
+    updateCurrentSelection({
+      key: id,
+      data: existingVal,
+      override: false,
+      nextBlocked: existingVal === "" || existingVal === null,
+    });
+  } else {
+    updateCurrentSelection({
+      key: id,
+      data: null,
+      override: false,
+      nextBlocked: true,
+    });
+  }
+}, []);
 
   const handleInput = (event) => {
   const val = event.target.value;
