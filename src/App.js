@@ -214,19 +214,24 @@ if (currentSelection?.nextBlocked) {
 // the user can move forward
 setNextBlocked(false);
       // Soft prompt for slides 34 & 35: warn if unanswered, allow proceeding on second click
-      if (slideIndex === 34 || slideIndex === 35) {
-        const slide34RequiredKeys = ["turnedtoavg", "turntoavg", "important", "timespent"];
-        const slide35RequiredKeys = ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"];
-        const requiredKeys = slideIndex === 34 ? slide34RequiredKeys : slide35RequiredKeys;
-        const hasUnanswered = requiredKeys.some(k => {
-  const val = selectionData[k];
-  return val === undefined || val === null || val === "";
-});
-        if (hasUnanswered && !showUnansweredWarning) {
-          setShowUnansweredWarning(true);
-          return;
-        }
-      }
+     if (slideIndex === 35 || slideIndex === 36) {
+
+  const slide35RequiredKeys = ["turnedtoavg", "turntoavg"];
+  const slide36RequiredKeys = ["important", "timespent"];
+
+  const requiredKeys =
+    slideIndex === 35 ? slide35RequiredKeys : slide36RequiredKeys;
+
+  const hasUnanswered = requiredKeys.some(k => {
+    const val = selectionData[k];
+    return val === undefined || val === null || val === "";
+  });
+
+  if (hasUnanswered && !showUnansweredWarning) {
+    setShowUnansweredWarning(true);
+    return;
+  }
+}
       setShowUnansweredWarning(false);
 
       // setting next slide to back to order for previous slide
