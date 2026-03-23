@@ -121,6 +121,15 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
     );
   }, [nextSlideToBackTo]);
 
+	const goBackSlide = () => {
+    if (nextSlideToBackTo.length > 0) {
+      const prevSlides = [...nextSlideToBackTo];
+      const previousIndex = prevSlides.pop();
+      setNextSlideToBackTo(prevSlides);
+      setSlideIndex(previousIndex);
+    }
+  };
+	
   // on first mount, creates the PID in firebase for future storagr
   const first_mount_firebase = async (date) => {
     try {
@@ -139,7 +148,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
         doc(db, FIREBASE_DB_NAME, selectionData["PID"].toString()),
         selectionData
       );
-
+		
       if (TESTING_MODE) {
         console.log(selectionData);
       }
@@ -1203,7 +1212,6 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   </div>
 )}*/}
           				  <NextSlideButton
-  nextBlockOverride={nextBlockOverride}
   nextBlocked={nextBlocked}
   onClick={handleNextSlide}
   disabled={consentRequired}
