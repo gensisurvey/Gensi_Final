@@ -109,6 +109,10 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
     localStorage.setItem("slideIndex", slideIndex.toString());
   }, [slideIndex]);
 
+	useEffect(() => {
+  window.scrollTo(0, 0);
+}, [slideIndex]);
+
   // Store slideIndex in local storage on state change
   useEffect(() => {
     localStorage.setItem(
@@ -897,7 +901,7 @@ setNextBlocked(false);
                       possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
                       updateCurrentSelection={updateCurrentSelection}
                       id={"timespent"}
-                      key={"timepsent"}
+                      key={"timespent"}
 						/>
   </div>
 )}
