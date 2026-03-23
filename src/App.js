@@ -180,99 +180,101 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   };
 
   // logic for transitioning to the next slide
-  const handleNextSlide = () => {
-    if (TESTING_MODE) {
-      console.log(currentSelection);
-    }
+	const handleNextSlide = () => {
+  if (TESTING_MODE) {
+    console.log(currentSelection);
+  }
 
-  // Always reset the warning at the start of each Next attempt
-	    const warningWasShowing = showUnansweredWarning;
+  // -----------------------------
+  // Reset warning state
+  // -----------------------------
+  const warningWasShowing = showUnansweredWarning;
   setShowUnansweredWarning(false);
-  // (will be re-set below if needed)
-	  
- // Consent slide logic
-if (slideIndex === -1) {
 
-  const consent = currentSelection?.key === "consent" ? currentSelection?.data : selectionData["consent"];
+  // -----------------------------
+  // Skip instruction slides (0 & 23)
+  // -----------------------------
+  if (slideIndex === 0 || slideIndex === 23) {
+    const nextPrevious = [...nextSlideToBackTo];
+    if (slideIndex >= 0) nextPrevious.push(slideIndex);
 
- // block if nothing selected
-  if (!consent) {
-    setConsentRequired(true);
-    return;
-  }
-  setConsentRequired(false);
-
-  // if user does not consent
-  if (consent === "no") {
-    setSlideIndex(TOTAL_SLIDES);
-    setSubmittedToFirebase(true);
+    setNextSlideToBackTo(nextPrevious);
+    setSlideIndex(slideIndex + 1);
+    add_to_firebase();
     return;
   }
 
-}
-// if slide itself blocks next
-if (currentSelection?.nextBlocked) {
-  setNextBlocked(true);
-  return;
-}
+  // -----------------------------
+  // Consent logic
+  // -----------------------------
+  if (slideIndex === -1) {
+    const consent =
+      currentSelection?.key === "consent"
+        ? currentSelection?.data
+        : selectionData["consent"];
 
-// the user can move forward
-setNextBlocked(false);
-      // Soft prompt for slides 34 & 35: warn if unanswered, allow proceeding on second click
-     if (slideIndex === 35 || slideIndex === 36) {
-
-  const slide35RequiredKeys = ["turnedtoavg", "turntoavg"];
-  const slide36RequiredKeys = ["important", "timespent"];
-
-  const requiredKeys =
-    slideIndex === 35 ? slide35RequiredKeys : slide36RequiredKeys;
-
-  const hasUnanswered = requiredKeys.some(k => {
-    const val = selectionData[k];
-    return val === undefined || val === null || val === "";
-  });
-
-  if (hasUnanswered && !warningWasShowing) {
-    setShowUnansweredWarning(true);
-    return;
-  }
-}
-
-      // setting next slide to back to order for previous slide
-      if (slideIndex >= 0) {
-        const nextPrevious = [...nextSlideToBackTo];
-        nextPrevious.push(slideIndex);
-        setNextSlideToBackTo(nextPrevious);
-      }
-      setSlideIndex(slideIndex + 1);
-
-      add_to_firebase();
-      };
-
-  // overrides next blocked, used if yes is clicked on override screen
-  const nextBlockOverride = (tf) => {
-    setNextBlocked(false);
-    if (tf) {
-      const nextPrevious = [...nextSlideToBackTo];
-      nextPrevious.push(slideIndex);
-
-      setNextSlideToBackTo(nextPrevious);
-      setSlideIndex(slideIndex + 1);
+    if (!consent) {
+      setConsentRequired(true);
+      return;
     }
+
+    setConsentRequired(false);
+
+    if (consent === "no") {
+      setSlideIndex(TOTAL_SLIDES);
+      setSubmittedToFirebase(true);
+      return;
+    }
+  }
+
+  // -----------------------------
+  // Blocked slides
+  // -----------------------------
+  if (currentSelection?.nextBlocked) {
+    setNextBlocked(true);
+    return;
+  }
+
+  setNextBlocked(false);
+
+  // -----------------------------
+  // Validation for slides 35–40 ONLY
+  // -----------------------------
+  const requiredFieldsBySlide = {
+    35: ["turnedtoavg", "turntoavg"],
+    36: ["important", "timespent"],
+    37: ["UCLAMini"],
+    38: ["MHC"],
+    39: ["attachmentcat", "attachmentcont"],
+    40: ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"]
   };
 
-  // logic for going to previous slide
-  const goBackSlide = () => {
-    if (slideIndex > 0) {
-		
-      const nextPrevious = [...nextSlideToBackTo];
-      const previous = nextPrevious.pop(slideIndex);
-		setShowUnansweredWarning(false);
-      setSlideIndex(previous);
-      setNextSlideToBackTo(nextPrevious);
-    }
-  };
+  const requiredKeys = requiredFieldsBySlide[slideIndex];
 
+  if (requiredKeys) {
+    const hasUnanswered = requiredKeys.some(key => {
+      const val = selectionData[key];
+      return val === undefined || val === null || val === "";
+    });
+
+    // first click → show warning
+    if (hasUnanswered && !warningWasShowing) {
+      setShowUnansweredWarning(true);
+      return;
+    }
+  }
+
+  // -----------------------------
+  // Proceed to next slide (ONLY PLACE THIS HAPPENS)
+  // -----------------------------
+  const nextPrevious = [...nextSlideToBackTo];
+  if (slideIndex >= 0) nextPrevious.push(slideIndex);
+
+  setNextSlideToBackTo(nextPrevious);
+  setSlideIndex(slideIndex + 1);
+
+  add_to_firebase();
+};
   return (
     <div className="app-box">
       <Banner logo={BannerImg} text={"Cornell University"} />
@@ -442,6 +444,7 @@ setNextBlocked(false);
       </span>
     }
     options={[]}
+  noValidation={true}
     updateCurrentSelection={updateCurrentSelection}
     key={"instructions"}
     id={"instructions"}
@@ -793,6 +796,7 @@ setNextBlocked(false);
       </span>
     }
     options={[]}
+    noValidation={true}
     updateCurrentSelection={updateCurrentSelection}
     key={"us_ladder_instructions"}
     id={"us_ladder_instructions"}
