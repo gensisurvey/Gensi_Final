@@ -6,6 +6,7 @@ import "./OpenInput.css";
 const MultipleChoiceSlide = ({ question, updateCurrentSelection, id, numeric }) => {
   const [inputValue, setInputValue] = useState("");
   const { selectionData, setSelectionData } = useContext(SelectionData);
+  const val = event.target.value; 
 
   useEffect(() => {
     if (
