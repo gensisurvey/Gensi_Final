@@ -37,7 +37,7 @@ const LikertScale = ({
       key: id,
       data: option,
       override: false,
-      nextBlocked: true,
+      nextBlocked: false,
     }); // Check if this line is correct
     setSelectedOption(option);
   };
