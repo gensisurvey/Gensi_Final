@@ -255,40 +255,36 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   // -----------------------------
   // Blocked slides
   // -----------------------------
-if (currentSelection?.nextBlocked) {
-  setNextBlocked(true);
-  return;
-}
 setNextBlocked(false);
-
-		
 
   // -----------------------------
   // Validation for slides 35–40 ONLY
   // -----------------------------
   const requiredFieldsBySlide = {
-    35: ["turnedtoavg", "turntoavg"],
-    36: ["important", "timespent"],
-    37: ["UCLAMini"],
-    38: ["MHC"],
-    39: ["attachmentcat", "attachmentcont"],
-    40: ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"]
-  };
+  35: ["turnedtoavg", "turntoavg"],
+  36: ["important", "timespent"],
+  37: ["UCLAMini"],
+  38: ["MHC"],
+  39: ["attachmentcat", "attachmentcont"],
+  40: ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"],
+};
 
-  const requiredKeys = requiredFieldsBySlide[slideIndex];
+const requiredKeys = requiredFieldsBySlide[slideIndex];
 
-  if (requiredKeys) {
+if (requiredKeys) {
   const hasUnanswered = requiredKeys.some(key => {
     const val = latestData[key];
     return val === undefined || val === null || val === "";
   });
 
   if (hasUnanswered) {
+    setNextBlocked(true);
     if (!showUnansweredWarning) {
       setShowUnansweredWarning(true);
       return;
     } else {
       setShowUnansweredWarning(false);
+      setNextBlocked(false);
     }
   }
 }
@@ -1246,7 +1242,7 @@ setNextBlocked(false);
     color: "#7a5c00",
     fontWeight: 500,
   }}>
-    ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Next</strong> again to continue anyway.
+    ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Yes</strong> to continue without answering.
   </div>
 )}
 	
