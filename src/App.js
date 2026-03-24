@@ -1238,14 +1238,14 @@ if (requiredKeys) {
 			
 			{showUnansweredWarning && (slideIndex >= 35 && slideIndex <= 40) && (
   <div style={{
-    margin: "12px 30px",
+    margin: "12px auto",
     padding: "12px 16px",
     backgroundColor: "#fff8e1",
     border: "1px solid #f0c040",
     borderRadius: "6px",
     color: "#7a5c00",
     fontWeight: 500,
-	 maxWidth: "400px",
+	 maxWidth: "350px",
 
   }}>
     ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Yes</strong> to continue without answering.
