@@ -133,6 +133,17 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
       setSlideIndex(previousIndex);
     }
   };
+
+	 const nextBlockOverride = (tf) => {
+    setNextBlocked(false);
+    if (tf) {
+      const nextPrevious = [...nextSlideToBackTo];
+      nextPrevious.push(slideIndex);
+      setNextSlideToBackTo(nextPrevious);
+      setSlideIndex(slideIndex + 1);
+      add_to_firebase();
+    }
+  };
 	
   // on first mount, creates the PID in firebase for future storagr
   const first_mount_firebase = async (date) => {
@@ -249,6 +260,8 @@ if (currentSelection?.nextBlocked) {
 } else {
   setNextBlocked(false);
 }
+
+		
 
   // -----------------------------
   // Validation for slides 35–40 ONLY
@@ -1236,7 +1249,9 @@ if (currentSelection?.nextBlocked) {
     ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Next</strong> again to continue anyway.
   </div>
 )}
-          				  <NextSlideButton
+	
+<NextSlideButton
+  nextBlockOverride={nextBlockOverride}
   nextBlocked={nextBlocked}
   onClick={handleNextSlide}
   disabled={consentRequired}
