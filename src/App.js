@@ -237,12 +237,11 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   // -----------------------------
   // Blocked slides
   // -----------------------------
-  if (currentSelection?.nextBlocked) {
-    setNextBlocked(true);
-    return;
-  }
-
+if (currentSelection?.nextBlocked) {
+  setNextBlocked(true);
+} else {
   setNextBlocked(false);
+}
 
   // -----------------------------
   // Validation for slides 35–40 ONLY
