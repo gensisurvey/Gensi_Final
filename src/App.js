@@ -885,6 +885,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       key={"turnedtoavg"}
                       id={"turnedtoavg"}
 						  numeric
+						 noValidation={true}
                     />
                          <OpenInput
                       question={
@@ -896,6 +897,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"turntoavg"}
                       id={"turntoavg"}
+						  noValidation={true}
 						  numeric
                     />
 <div style={{ height: "20px" }} />
@@ -914,6 +916,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"important"}
                       key={"important"}
+						    noValidation={true}
                     />
 
                            <LikertScaleSlide
@@ -927,6 +930,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"timespent"}
                       key={"timespent"}
+						    noValidation={true}
 						/>
   </div>
 )}
@@ -945,6 +949,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"UCLAMini"}
                       key={"UCLAMini"}
+						    noValidation={true}
                     />
 )}
 
@@ -973,6 +978,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"MHC"}
                       key={"MHC"}
+						    noValidation={true}
                    />
 )}
 
@@ -991,6 +997,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"attachmentcat"}
                       id={"attachmentcat"}
+						    noValidation={true}
                     />
 
                     <LikertScaleSlide
@@ -1007,6 +1014,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       id={"attachmentcont"}
                       key={"attachmentcont"}
+						    noValidation={true}
                    />
   </div>
 )}
@@ -1034,6 +1042,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"Ethnicity"}
                       id={"Ethnicity"}
+						    noValidation={true}
                       />
 						  );
 	  							}
@@ -1048,6 +1057,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"Gender"}
                       id={"Gender"}
+						    noValidation={true}
                     />
 						   );
 	  							}
@@ -1073,6 +1083,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"famIncome"}
                       id={"famIncome"}
+						    noValidation={true}
                     />
 						   );
 	  							}
@@ -1090,6 +1101,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       updateCurrentSelection={updateCurrentSelection}
                       key={"parentNumber"}
                       id={"parentNumber"}
+						    noValidation={true}
                     />
                     {(parseInt(selectionData["parentNumber"], 10) >= 1 ||
                       parseInt(selectionData["parentNumber"], 10) >= 2) && (
@@ -1109,6 +1121,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                         updateCurrentSelection={updateCurrentSelection}
                         key={"par1Edu"}
                         id={"par1Edu"}
+							  noValidation={true}
                       />
                     )}
                     {parseInt(selectionData["parentNumber"], 10) >= 2 && (
@@ -1128,6 +1141,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                         updateCurrentSelection={updateCurrentSelection}
                         key={"par2Edu"}
                         id={"par2Edu"}
+							  noValidation={true}
                       />
                     )}
 				       </div>
@@ -1146,6 +1160,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       key={"genFriends"}
                       id={"genFriends"}
 					  numeric
+						    noValidation={true}
                     />
                     {selectionData["genFriends"] && (
                       <OpenInput
@@ -1154,6 +1169,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                         key={"closeFriends"}
                         id={"closeFriends"}
 							numeric
+								  noValidation={true}
                       />
                     )}
 												       </div>
@@ -1173,6 +1189,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                       ladderImg={LadderImg}
                       key={"ladderCU"}
                       id={"ladderCU"}
+						    noValidation={true}
                     />
                      );
 	  							}
@@ -1194,6 +1211,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
                 key={"survey_feedback"}
                 id={"survey_feedback"}
                 include_svg={false}
+					  noValidation={true}
               />
             )}
 
