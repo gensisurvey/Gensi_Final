@@ -264,12 +264,12 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   // -----------------------------
   // Validation for slides 35–40 ONLY
   // -----------------------------
-  const requiredFieldsBySlide = {
+const requiredFieldsBySlide = {
   35: ["turnedtoavg", "turntoavg"],
-  36: ["important", "timespent"],
-  37: ["UCLAMini"],
-  38: ["MHC"],
-  39: ["attachmentcat", "attachmentcont"],
+  36: ["important_0", "timespent_0"],
+  37: ["UCLAMini_0", "UCLAMini_1", "UCLAMini_2"],
+  38: ["MHC_0", "MHC_1", "MHC_2", "MHC_3", "MHC_4", "MHC_5", "MHC_6", "MHC_7", "MHC_8", "MHC_9", "MHC_10", "MHC_11", "MHC_12", "MHC_13"],
+  39: ["attachmentcat", "attachmentcont_0", "attachmentcont_1", "attachmentcont_2", "attachmentcont_3"],
   40: ["Ethnicity", "Gender", "famIncome", "parentNumber", "genFriends", "ladderCU"],
 };
 
