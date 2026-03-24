@@ -251,12 +251,16 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
       return;
     }
   }
-
+// -----------------------------
+  // Blocked slides (slides before 35 only)
   // -----------------------------
-  // Blocked slides
-  // -----------------------------
-setNextBlocked(false);
-
+  if (slideIndex < 35) {
+    if (currentSelection?.nextBlocked) {
+      setNextBlocked(true);
+      return;
+    }
+    setNextBlocked(false);
+  }
   // -----------------------------
   // Validation for slides 35–40 ONLY
   // -----------------------------
