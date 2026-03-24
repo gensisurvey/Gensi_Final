@@ -1245,6 +1245,8 @@ if (requiredKeys) {
     borderRadius: "6px",
     color: "#7a5c00",
     fontWeight: 500,
+	 maxWidth: "400px",
+
   }}>
     ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Yes</strong> to continue without answering.
   </div>
