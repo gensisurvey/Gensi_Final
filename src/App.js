@@ -194,6 +194,13 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
 
   // logic for transitioning to the next slide
 	const handleNextSlide = () => {
+
+		const latestData = {
+  ...selectionData,
+  ...(currentSelection
+    ? { [currentSelection.key]: currentSelection.data }
+    : {})
+};
   if (TESTING_MODE) {
     console.log(currentSelection);
   }
@@ -259,16 +266,17 @@ if (currentSelection?.nextBlocked) {
 
   if (requiredKeys) {
   const hasUnanswered = requiredKeys.some(key => {
-    const val = selectionData[key];
+    const val = latestData[key];
     return val === undefined || val === null || val === "";
   });
 
   if (hasUnanswered) {
     if (!showUnansweredWarning) {
       setShowUnansweredWarning(true);
-      return; // FIRST CLICK → block
+      return;
+    } else {
+      setShowUnansweredWarning(false);
     }
-    // SECOND CLICK → allow through
   }
 }
 
