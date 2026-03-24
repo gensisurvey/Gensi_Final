@@ -113,6 +113,10 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   window.scrollTo(0, 0);
 }, [slideIndex]);
 
+	useEffect(() => {
+  setShowUnansweredWarning(false);
+}, [slideIndex]);
+	
   // Store slideIndex in local storage on state change
   useEffect(() => {
     localStorage.setItem(
@@ -195,12 +199,6 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   }
 
   // -----------------------------
-  // Reset warning state
-  // -----------------------------
-  const warningWasShowing = showUnansweredWarning;
-  setShowUnansweredWarning(false);
-
-  // -----------------------------
   // Skip instruction slides (0 & 23)
   // -----------------------------
   if (slideIndex === 0 || slideIndex === 23) {
@@ -261,17 +259,19 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   const requiredKeys = requiredFieldsBySlide[slideIndex];
 
   if (requiredKeys) {
-    const hasUnanswered = requiredKeys.some(key => {
-      const val = selectionData[key];
-      return val === undefined || val === null || val === "";
-    });
+  const hasUnanswered = requiredKeys.some(key => {
+    const val = selectionData[key];
+    return val === undefined || val === null || val === "";
+  });
 
-    // first click → show warning
-    if (hasUnanswered && !warningWasShowing) {
+  if (hasUnanswered) {
+    if (!showUnansweredWarning) {
       setShowUnansweredWarning(true);
-      return;
+      return; // FIRST CLICK → block
     }
+    // SECOND CLICK → allow through
   }
+}
 
   // -----------------------------
   // Proceed to next slide (ONLY PLACE THIS HAPPENS)
@@ -1197,7 +1197,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
               />
             )}
 
-			{/*
+			
 			{showUnansweredWarning && (slideIndex >= 35 && slideIndex <= 40) && (
   <div style={{
     margin: "12px 30px",
@@ -1210,7 +1210,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   }}>
     ⚠️ It looks like you may have missed some questions on this page. Please go back and answer them, or click <strong>Next</strong> again to continue anyway.
   </div>
-)}*/}
+)}
           				  <NextSlideButton
   nextBlocked={nextBlocked}
   onClick={handleNextSlide}
