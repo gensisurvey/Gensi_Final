@@ -257,9 +257,9 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   // -----------------------------
 if (currentSelection?.nextBlocked) {
   setNextBlocked(true);
-} else {
-  setNextBlocked(false);
+  return;
 }
+setNextBlocked(false);
 
 		
 
