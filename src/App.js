@@ -942,7 +942,7 @@ research team.
                       questions={[
                         "How much time do you spend with this team?",
                       ]}
-                      left={"None"}
+                      left={"No time at all"}
                       right={"A great deal"}
                       possibleAnswers={["1", "2", "3", "4", "5", "6", "7"]}
                       updateCurrentSelection={updateCurrentSelection}
@@ -1002,29 +1002,19 @@ research team.
 
 		 {slideIndex === 39 && (
   <div>
-                    <MultipleChoiceSlide
-                      question={"Please indicate which general relationship style best describes you or is closest to the way you are"}
-                      options={[
-                        "It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.",
-                        "I am uncomfortable getting close to others. I want emotionally close relationships, but I find it difficult to trust others completely, or to depend on them. I worry that I will be hurt if I allow myself to become too close to others.",
-                        "I want to be completely emotionally intimate with others, but I often find that others are reluctant to get as close as I would like. I am uncomfortable being without close relationships, but I sometimes worry that others don’t value me as much as I value them.",
-                        "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me."
-                      ]}
-                      add_other_option={false}
-                      checkbox={false}
-                      updateCurrentSelection={updateCurrentSelection}
-                      key={"attachmentcat"}
-                      id={"attachmentcat"}
-						    noValidation={true}
-                    />
-
+                   
                     <LikertScaleSlide
-                      scalePrompt={"Please rate each of the relationship styles below to indicate how well or poorly each description corresponds to your general relationship style."}
+                      scalePrompt={"Please read each of the following statements and rate the extent to which you believe eachstatement best describes your feelings about close relationships in general."}
                       questions={[
-                        "It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.",
-                        "I am uncomfortable getting close to others. I want emotionally close relationships, but I find it difficult to trust others completely, or to depend on them. I worry that I will be hurt if I allow myself to become too close to others.",
-                        "I want to be completely emotionally intimate with others, but I often find that others are reluctant to get as close as I would like. I am uncomfortable being without close relationships, but I sometimes worry that others don’t value me as much as I value them.",
-                        "I am comfortable without close emotional relationships. It is very important to me to feel independent and self-sufficient, and I prefer not to depend on others or have others depend on me.",
+                        "It helps to turn to people in times of need.",
+						"I usually discuss my problems and concerns with others.",
+						  "I talk things over with people.",
+						  "I find it easy to depend on others.",
+						  "I don't feel comfortable opening up to others.",
+						  "I prefer not to show others how I feel deep down.",
+						  "I often worry that other people do not really care for me.",
+						  "I'm afraid that other people may abandon me.",
+						  "I worry that others won't care about me as much as I care about them.",
                       ]}
                       left={"Disagree strongly"}
                       right={"Agree strongly"}
