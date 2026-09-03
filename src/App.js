@@ -374,13 +374,11 @@ if (requiredKeys) {
         </p>
 
         <p>
-          As an additional group appreciation gesture, if at least 95% of eligible team
-          members choose to complete the survey, the research team will provide pizza
-          for the team. This group incentive is not part of your individual compensation.
-          Your decision to participate or not participate is entirely voluntary.
-          Choosing not to participate will involve no penalty or loss of benefits to
-          which you are otherwise entitled. Individual participation decisions will not
-          be shared with coaches, teammates, or anyone outside the research team.
+          As an additional group appreciation gesture, the research team will provide pizza for the team. This group
+incentive is not part of your individual compensation. Your decision to participate or not participate is entirely
+voluntary. Choosing not to participate will involve no penalty or loss of benefits to which you are otherwise
+entitled. Individual participation decisions will not be shared with coaches, teammates, or anyone outside the
+research team.
         </p>
 
         <p>
