@@ -99,7 +99,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
       next_data_add["PID"] = generateRandomID()
 
       setSelectionData(next_data_add);
-      first_mount_firebase(next_data_add["PID"]);
+      first_mount_firebase(next_data_add);
     }
     
   }, []);
@@ -146,28 +146,31 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
   };
 	
   // on first mount, creates the PID in firebase for future storagr
-  const first_mount_firebase = async (date) => {
-    try {
-      await setDoc(doc(db, FIREBASE_DB_NAME, date.toString()), selectionData);
+ const first_mount_firebase = async (data) => {
+  try {
+    await setDoc(
+      doc(db, FIREBASE_DB_NAME, data["PID"].toString()),
+      data
+    );
 
-      console.log("Document written with ID: ", date.toString());
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
-  };
-
+    console.log("Document written with ID: ", data["PID"]);
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+};
+	
   // updates current PID with new information whenever called
-  const add_to_firebase = async (e) => {
-    try {
-      await setDoc(
-        doc(db, FIREBASE_DB_NAME, selectionData["PID"].toString()),
-        selectionData
-      );
+  const add_to_firebase = async (dataToSave = selectionData) => {
+  try {
+    await setDoc(
+      doc(db, FIREBASE_DB_NAME, dataToSave["PID"].toString()),
+      dataToSave
+    );
 		
       if (TESTING_MODE) {
-        console.log(selectionData);
+        console.log(dataToSave);
       }
-      console.log("Document written to with ID: ", selectionData["PID"]);
+      console.log("Document written to with ID: ", dataToSave["PID"]);
 
       // sets submitted final when the final slide is reached
       if (slideIndex > TOTAL_SLIDES) {
@@ -225,7 +228,7 @@ const [showUnansweredWarning, setShowUnansweredWarning] = useState(false);
 
     setNextSlideToBackTo(nextPrevious);
     setSlideIndex(slideIndex + 1);
-    add_to_firebase();
+    add_to_firebase(latestData);
     return;
   }
 
@@ -305,7 +308,7 @@ if (requiredKeys) {
   setNextSlideToBackTo(nextPrevious);
   setSlideIndex(slideIndex + 1);
 
-  add_to_firebase();
+  add_to_firebase(latestData);
 };
   return (
     <div className="app-box">
